@@ -1,3 +1,14 @@
+
+<form action="login.php" method="POST">
+    <label>Número Control</label>
+    <input type="text" name="numero_control" placeholder="Número Control" required>
+
+    <label>Contraseña</label>
+    <input type="password" name="password" placeholder="Contraseña" required>
+
+    <button type="submit">Iniciar sesión</button>
+</form>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
