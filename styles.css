@@ -59,7 +59,7 @@ input {
     border: 1px solid #ccc;
 }
 
-button {
+.boton {
     width: 104.2%;
     padding: 10px;
     background-color: #1800ad;

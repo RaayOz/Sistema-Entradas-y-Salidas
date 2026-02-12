@@ -12,9 +12,11 @@
     alert("Inicio de sesión simulado\nNúmero de control: " + numero);
 });*/
 
-//Funcion de prueba
+//Datos de prueba.
 let numeroPrueba = "24212251";
 let contraPrueba = "OIML010702HCHNRSA3";
+
+//Referencia a los input de Numero de control y CURP
 let numero = document.querySelector(".numero_control");
 let password = document.querySelector(".password");
 
@@ -25,8 +27,14 @@ function InicioSesion (){
         //TODO: Hay que cambiar esto a que te mande a una pagina con el tipo de usuario correcto..
         window.location.assign("Registro_Alumno.html");
     }
+
+    else if ((numero.value === "") || (password.value === "")){
+        alert("Por favor llenar todos los datos.");
+        console.log("Datos sin llenar");
+    }
+
     //Por si los datos estan mal
-    else if((numero.value !== contraPrueba) && (password.value !== contraPrueba)){
+    else if((numero.value !== contraPrueba) || (password.value !== contraPrueba)){
         alert("Datos Erroneos.")
         console.log("Datos erroneos");
     }
