@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Datos usuario</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="card">
+
+                <h2>Ingreso de datos</h2>
+
+                <p class="subtitle">
+                    Datos personales del alumno.
+                </p>
+
+                <form id="datosPersonales">
+                    <label>Nombre</label>
+                    <input type="text" id="nombreUsuario" placeholder="Nombre" required>
+
+                    <label for="apellidoPaterno">Apellido Paterno</label>
+                    <input type="text" id="apellidoPaterno" placeholder="Paterno" required>
+
+                    <label for="apellidoMaterno">Apellido Materno</label>
+                    <input type="text" id="apellidoMaterno" placeholder="Materno" required>
+                </form>
+
+                <p class="subtitle">
+                    Datos Escolares del alumno.
+                </p>
+
+                <form id="datosEscolares">
+                    <label for="numeroControl">Numero de control</label>
+                    <input type="number" id="numeroControl" placeholder="Numero de control" required>
+
+                    <label for="curp">CURP</label>
+                    <input type="text" id="curp" placeholder="curp" required>
+                </form>
+
+                <p class="subtitle">
+                    Datos opcionales del alumno.
+                </p>
+
+                <form id="datosOpcionales">
+                    <label for="numeroEmergencia">Numero de contacto para emergencia.</label>
+                    <input type="number" id="numeroEmergencia" placeholder="xxx-xxx-xx-xx">
+                </form>
+
+                <button type="submit"> Registrar datos</button>
+            </div>
+        </div>
+        <script src="" async defer></script>
+    </body>
+</html>
