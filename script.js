@@ -33,6 +33,7 @@ function InicioSesion (){
         console.log("Datos sin llenar");
     }
 
+    //BUG: No agarra la opcion adecueda, verificar que pedo.
     //Por si los datos estan mal
     else if((numero.value !== contraPrueba) || (password.value !== contraPrueba)){
         alert("Datos Erroneos.")
