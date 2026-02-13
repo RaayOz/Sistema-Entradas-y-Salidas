@@ -18,7 +18,7 @@
                     Datos personales del alumno.
                 </p>
 
-                <form id="datosPersonales">
+                <form action="include/formHandler.inc.php" method="POST">
                     <label>Nombre</label>
                     <input type="text" id="nombreUsuario" placeholder="Nombre" required>
 
@@ -27,30 +27,26 @@
 
                     <label for="apellidoMaterno">Apellido Materno</label>
                     <input type="text" id="apellidoMaterno" placeholder="Materno" required>
-                </form>
+                
 
                 <p class="subtitle">
                     Datos Escolares del alumno.
                 </p>
 
-                <form id="datosEscolares">
                     <label for="numeroControl">Numero de control</label>
                     <input type="number" id="numeroControl" placeholder="Numero de control" required>
-
                     <label for="curp">CURP</label>
                     <input type="text" id="curp" placeholder="curp" required>
-                </form>
 
                 <p class="subtitle">
                     Datos opcionales del alumno.
                 </p>
 
-                <form id="datosOpcionales">
                     <label for="numeroEmergencia">Numero de contacto para emergencia.</label>
                     <input type="number" id="numeroEmergencia" placeholder="xxx-xxx-xx-xx">
-                </form>
 
                 <button type="submit" class="boton"> Registrar datos</button>
+</form>
             </div>
         </div>
         <script src="" async defer>
