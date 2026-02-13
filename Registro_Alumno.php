@@ -18,15 +18,15 @@
                     Datos personales del alumno.
                 </p>
 
-                <form action="include/formHandler.inc.php" method="POST">
+                <form action="includes/formHandler.inc.php" method="post">
                     <label>Nombre</label>
-                    <input type="text" id="nombreUsuario" placeholder="Nombre" required>
+                    <input type="text" name="nombreUsuario" placeholder="Nombre" required>
 
                     <label for="apellidoPaterno">Apellido Paterno</label>
-                    <input type="text" id="apellidoPaterno" placeholder="Paterno" required>
+                    <input type="text" name="apellidoPaterno" placeholder="Paterno" required>
 
                     <label for="apellidoMaterno">Apellido Materno</label>
-                    <input type="text" id="apellidoMaterno" placeholder="Materno" required>
+                    <input type="text" name="apellidoMaterno" placeholder="Materno" required>
                 
 
                 <p class="subtitle">
@@ -34,18 +34,18 @@
                 </p>
 
                     <label for="numeroControl">Numero de control</label>
-                    <input type="number" id="numeroControl" placeholder="Numero de control" required>
+                    <input type="number" name="numeroControl" placeholder="Numero de control" required>
                     <label for="curp">CURP</label>
-                    <input type="text" id="curp" placeholder="curp" required>
+                    <input type="text" name="curp" placeholder="curp" required>
 
                 <p class="subtitle">
                     Datos opcionales del alumno.
                 </p>
 
                     <label for="numeroEmergencia">Numero de contacto para emergencia.</label>
-                    <input type="number" id="numeroEmergencia" placeholder="xxx-xxx-xx-xx">
+                    <input type="number" name="numeroEmergencia" placeholder="xxx-xxx-xx-xx">
 
-                <button type="submit" class="boton"> Registrar datos</button>
+                <button class="boton"> Registrar datos</button>
 </form>
             </div>
         </div>
