@@ -1,0 +1,17 @@
+En la base de datos, cuando la actives con XAMPP y te metas el link "http://localhost/phpmyadmin" en donde dice "Nueva" crea una base de datos y llamala "control_accesos"
+cuando la crees en control de acceso le das a sql y pegas el siguiente codigo:
+
+CREATE TABLE alumnos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    numero_control VARCHAR(20) UNIQUE NOT NULL,
+    nombre_completo VARCHAR(150) NOT NULL,
+    carrera VARCHAR(100) NOT NULL,
+    curp VARCHAR(18) UNIQUE NOT NULL,
+    foto VARCHAR(255),
+    password VARCHAR(255) NOT NULL
+);
+
+para crear la tabla de alumno, en esta tabla agregaras los datos de cada alumno para que "index.php" funcione
+
+cuando la tengas en la ruta "C:\xampp\htdocs" de tu pc crea una carpeta llamada "Sistema-Entradas-y-Salidas" y esa carpeta la enlazas con el github
+esto para que todos tengamos el mismo codigo y puedan compartir cada cambio
