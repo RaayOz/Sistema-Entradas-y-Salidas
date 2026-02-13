@@ -1,8 +1,8 @@
 <?php //Archivo para conectar a la base de datos.
 
 $dsn = "mysql:host=127.0.0.1;dbname=SIESA";//Conecta a un driver de mysql con localhost a la base de datos SIESA.
-$dbusername = "Luggsmi"; //Nombre del usuario de Mysql
-$dbpassword = "Luxemburgo01"; //Password del usario de Mysql
+$dbusername = ""; //Nombre del usuario de Mysql
+$dbpassword = ""; //Password del usario de Mysql
 
 try {
     $pdo = new PDO($dsn, $dbusername, $dbpassword); //Conecta con php data objects con las parametros anteriores
