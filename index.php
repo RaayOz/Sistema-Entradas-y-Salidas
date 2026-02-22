@@ -26,8 +26,8 @@
 
             <label>Contraseña</label>
             <input type="password" name="password" placeholder="Contraseña" required>
-    <button type="submit">Iniciar sesión</button>
-</form>
+            <button type="submit">Iniciar sesión</button>
+        </form>
     </div>
 </div>
 

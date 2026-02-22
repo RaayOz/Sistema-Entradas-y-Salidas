@@ -5,18 +5,22 @@ $numero = $_POST['numero_control'];
 $password = $_POST['password'];
 
 $sql = "SELECT * FROM alumnos WHERE numero_control = ?";
-$stmt = $conexion->prepare($sql);
-$stmt->bind_param("s", $numero);
-$stmt->execute();
-$resultado = $stmt->get_result();
+$params = array($numero);
 
-if ($resultado->num_rows > 0) {
-    $alumno = $resultado->fetch_assoc();
+$stmt = sqlsrv_query($conexion, $sql, $params);
+
+if ($stmt === false) {
+    die(print_r(sqlsrv_errors(), true));
+}
+
+$alumno = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
+
+if ($alumno) {
 
     if ($password === $alumno['password']) {
-    echo "Bienvenido " . $alumno['nombre_completo'];
+        echo "Bienvenido " . $alumno['nombre_completo'];
     } else {
-    echo "Contraseña incorrecta";
+        echo "Contraseña incorrecta";
     }
 
 } else {
