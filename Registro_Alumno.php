@@ -15,28 +15,30 @@
                 <h2>Ingreso de datos</h2>
 
                 <p class="subtitle">
-                    Datos personales del alumno.
+                    Datos personales del usuario.
                 </p>
 
                 <form action="includes/formHandler.inc.php" method="post">
                     <label>Nombre</label>
                     <input type="text" name="nombreUsuario" placeholder="Nombre" required>
 
-                    <label for="apellidoPaterno">Apellido Paterno</label>
-                    <input type="text" name="apellidoPaterno" placeholder="Paterno" required>
-
-                    <label for="apellidoMaterno">Apellido Materno</label>
-                    <input type="text" name="apellidoMaterno" placeholder="Materno" required>
+                    <label for="apellidos">Apellido Paterno</label>
+                    <input type="text" name="apellidos" placeholder="Apellidos" required>
                 
 
                 <p class="subtitle">
-                    Datos Escolares del alumno.
+                    Datos Escolares del usuario.
                 </p>
 
                     <label for="numeroControl">Numero de control</label>
                     <input type="number" name="numeroControl" placeholder="Numero de control" required>
                     <label for="curp">CURP</label>
                     <input type="text" name="curp" placeholder="curp" required>
+                    <--CHECAR!!!! No estoy muy seguro si esto funciona bien---!>
+                    <input type="radio" name="tipo_usuario" value="Alumno"> Alumno
+                    <input type="radio" name="tipo_usuario" value="Docente"> Docente
+                    <input type="radio" name="tipo_usuario" value="Administrador"> Admnistrador
+                    <input type="radio" name="tipo_usuario" value="Guardia"> Guardia
 
                 <p class="subtitle">
                     Datos opcionales del alumno.
