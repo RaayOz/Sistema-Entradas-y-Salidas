@@ -1,6 +1,6 @@
 <?php
 // 1. Conexión a base de datos 
-$conexion = new mysqli("localhost", "root", "", "sistema_itt");
+$conexion = new mysqli("localhost", "root", "", "SIESA");
 
 if ($conexion->connect_error) {
     die("Error de conexión: " . $conexion->connect_error);
@@ -11,7 +11,7 @@ $numero_control = $_POST['numero_control'];
 $password = $_POST['password'];
 
 // 3. Buscar en la tabla 
-$sql = "SELECT * FROM alumno WHERE no_control = ? AND contrasena = ?";
+$sql = "SELECT * FROM Usuario WHERE NoControl = ? AND Contrasena = ?";
 $stmt = $conexion->prepare($sql);
 $stmt->bind_param("ss", $numero_control, $password);
 $stmt->execute();
