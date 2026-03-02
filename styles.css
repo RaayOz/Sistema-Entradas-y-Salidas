@@ -5,7 +5,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-
     background:linear-gradient(
         180deg,
         #1800ad 60%,
@@ -28,6 +27,7 @@ body {
     text-align: center;
 }
 
+
 .logo img {
     width: 250px;
     margin-bottom: none;
@@ -37,6 +37,7 @@ h2 {
     font-size: 30px;
     margin: 5px 0;
 }
+
 
 .subtitle {
     font-size: 14px;
@@ -69,7 +70,6 @@ button {
     cursor: pointer;
     font-weight: bold;
 }
-
 button:hover {
     background-color: #000000;
 }
