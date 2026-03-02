@@ -1,23 +1,23 @@
 <?php
-// 1. Conexión a tu base de datos (asegúrate de haberla creado de nuevo tras reinstalar)
+// 1. Conexión a base de datos 
 $conexion = new mysqli("localhost", "root", "", "sistema_itt");
 
 if ($conexion->connect_error) {
     die("Error de conexión: " . $conexion->connect_error);
 }
 
-// 2. Recibir los datos (Usando los 'names' exactos del HTML de tus compañeros)
+// 2. Recibir los datos 
 $numero_control = $_POST['numero_control']; 
 $password = $_POST['password'];
 
-// 3. Buscar en la tabla 'alumno' (Según tu diagrama original)
+// 3. Buscar en la tabla 
 $sql = "SELECT * FROM alumno WHERE no_control = ? AND contrasena = ?";
 $stmt = $conexion->prepare($sql);
 $stmt->bind_param("ss", $numero_control, $password);
 $stmt->execute();
 $resultado = $stmt->get_result();
 
-// 4. Responder
+// 4. desplegar
 if ($resultado->num_rows > 0) {
     $datos = $resultado->fetch_assoc();
     echo "<div style='text-align:center; font-family:Arial; margin-top:50px;'>";
