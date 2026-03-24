@@ -88,5 +88,7 @@ Datos opcionales
 </div>
 </div>
 
+<a href="logout.php">Cerrar sesión</a>
+
 </body>
 </html>
