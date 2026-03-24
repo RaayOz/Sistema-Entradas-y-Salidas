@@ -17,21 +17,37 @@
         <h2>Sistema de Información de Entrada y Salida de Alumnos</h2>
 
         <p class="subtitle">
-            ingresar credenciales para acceder
+            Ingresar credenciales para acceder
         </p>
 
-        <form id="loginForm">
-            <label>Número Control</label>
-            <input type="number" id="numero_control" class="numero_control"placeholder="Número Control" required>
+        <form action="login.php" method="POST">
 
-            <label>CURP</label>
-            <input type="text" id="password" class="password" placeholder="Contraseña" required>
+            <label>Número de Control</label>
+            <input 
+                type="text" 
+                name="nocontrol"
+                id="numero_control"
+                placeholder="Número de Control"
+                required
+            >
+
+            <label>Contraseña</label>
+            <input 
+                type="password" 
+                name="contrasena"
+                id="password"
+                placeholder="Contraseña"
+                required
+            >
             
-            <button type="button" id="botonIniciarSesion" class="boton">Iniciar Sesion</button>
+            <button type="submit" class="boton">
+                Iniciar Sesión
+            </button>
+
         </form>
+
     </div>
 </div>
 
-<script src="script.js"></script>
 </body>
 </html>

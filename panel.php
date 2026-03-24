@@ -17,7 +17,7 @@ if(!isset($_SESSION['usuario'])){
 
 <h1>Bienvenido <?php echo $_SESSION['usuario']; ?></h1>
 
-<p>Has iniciado sesión correctamente.</p>
+<p>No. Control: <?php echo $_SESSION['nocontrol']; ?></p>
 
 <a href="logout.php">Cerrar sesión</a>
 
