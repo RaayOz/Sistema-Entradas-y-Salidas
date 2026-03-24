@@ -1,25 +1,29 @@
 <?php
+session_start();
 include("conexion.php");
 
-$numero = $_POST['numero_control'];
-$password = $_POST['password'];
+$nocontrol = $_POST['nocontrol'];
+$contrasena = $_POST['contrasena'];
 
-$sql = "SELECT * FROM alumnos WHERE numero_control = ?";
-$stmt = $conexion->prepare($sql);
-$stmt->bind_param("s", $numero);
-$stmt->execute();
-$resultado = $stmt->get_result();
+$sql = "SELECT * FROM Usuario 
+        WHERE NoControl='$nocontrol' 
+        AND Contrasena='$contrasena'";
+
+$resultado = $conn->query($sql);
 
 if ($resultado->num_rows > 0) {
-    $alumno = $resultado->fetch_assoc();
 
-    if ($password === $alumno['password']) {
-    echo "Bienvenido " . $alumno['nombre_completo'];
-    } else {
-    echo "Contraseña incorrecta";
-    }
+    $usuario = $resultado->fetch_assoc();
+
+    $_SESSION['usuario'] = $usuario['Nombres'];
+    $_SESSION['rol'] = $usuario['ID_Rol'];
+    $_SESSION['id'] = $usuario['ID_Usuario'];
+
+    header("Location: panel.php");
+    exit();
 
 } else {
-    echo "Número de control no encontrado";
+
+    echo "Usuario o contraseña incorrectos";
 }
 ?>

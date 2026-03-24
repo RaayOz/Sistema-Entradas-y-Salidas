@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Inicio de Sesión</title>
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <title>SIESA</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
 <div class="container">
-<div class="card">
+    <div class="card">
 
-<div class="logo">
-<img src="logo.png">
+        <div class="logo">
+            <img src="img/logo.png" alt="Logo SIESA">
+        </div>
+
+        <h2>Sistema de Información de Entrada y Salida de Alumnos</h2>
+
+        <p class="subtitle">
+            ingresar credenciales para acceder
+        </p>
+
+        <form id="loginForm">
+            <label>Número Control</label>
+            <input type="number" id="numero_control" class="numero_control"placeholder="Número Control" required>
+
+            <label>CURP</label>
+            <input type="text" id="password" class="password" placeholder="Contraseña" required>
+            
+            <button type="button" id="botonIniciarSesion" class="boton">Iniciar Sesion</button>
+        </form>
+    </div>
 </div>
 
-<h2>Inicio de Sesión</h2>
-<p class="subtitle">Sistema SIESA</p>
-
-<form action="login.php" method="POST">
-
-<label>Correo</label>
-<input type="email" name="correo" required>
-
-<label>Contraseña</label>
-<input type="password" name="contrasena" required>
-
-<button class="boton" type="submit">Iniciar Sesión</button>
-
-</form>
-
-</div>
-</div>
-
+<script src="script.js"></script>
 </body>
 </html>
