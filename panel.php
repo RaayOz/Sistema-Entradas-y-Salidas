@@ -6,14 +6,6 @@ if(!isset($_SESSION['usuario'])){
 }
 ?>
 
-<?php
-session_start();
-
-if(!isset($_SESSION['nocontrol'])){
-    header("Location: index.php");
-}
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +19,7 @@ if(!isset($_SESSION['nocontrol'])){
 
 <p>Numero de Control: <?php echo $_SESSION['nocontrol']; ?></p>
 
-<button class="boton"><a href="logout.php">Cerrar sesión</a></button>
+<a href="logout.php">Cerrar sesión</a>
 
 </body>
 </html>

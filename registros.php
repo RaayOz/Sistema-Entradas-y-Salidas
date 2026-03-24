@@ -82,7 +82,7 @@ Datos opcionales
 
 
 <button class="boton">Registrar usuario</button>
-<button class="boton"><a href="logout.php">Cerrar sesión</a></button>
+<a href="logout.php">Cerrar sesión</a>
 
 </form>
 
