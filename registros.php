@@ -1,58 +1,65 @@
-
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Datos usuario</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <div class="container">
-            <div class="card">
+<head>
+<meta charset="utf-8">
+<title>Registro de usuario</title>
+<link rel="stylesheet" href="styles.css">
+</head>
 
-                <h2>Ingreso de datos</h2>
+<body>
 
-                <p class="subtitle">
-                    Datos personales del usuario.
-                </p>
+<div class="container">
+<div class="card">
 
-                <form action="includes/formHandler.inc.php" method="post">
-                    <label>Nombre</label>
-                    <input type="text" name="nombreUsuario" placeholder="Nombre" required>
+<h2>Ingreso de datos</h2>
 
-                    <label for="apellidos">Apellido Paterno</label>
-                    <input type="text" name="apellidos" placeholder="Apellidos" required>
-                
+<p class="subtitle">
+Datos personales del usuario
+</p>
 
-                <p class="subtitle">
-                    Datos Escolares del usuario.
-                </p>
+<form action="registrar_usuario.php" method="POST">
 
-                    <label for="numeroControl">Numero de control</label>
-                    <input type="number" name="numeroControl" placeholder="Numero de control" required>
-                    <label for="curp">CURP</label>
-                    <input type="text" name="curp" placeholder="curp" required>
-                    <--CHECAR!!!! No estoy muy seguro si esto funciona bien---!>
-                    <input type="radio" name="tipo_usuario" value="Alumno"> Alumno
-                    <input type="radio" name="tipo_usuario" value="Docente"> Docente
-                    <input type="radio" name="tipo_usuario" value="Administrador"> Admnistrador
-                    <input type="radio" name="tipo_usuario" value="Guardia"> Guardia
+<label>Nombre</label>
+<input type="text" name="nombre" placeholder="Nombre" required>
 
-                <p class="subtitle">
-                    Datos opcionales del alumno.
-                </p>
+<label>Apellido</label>
+<input type="text" name="apellidos" placeholder="Apellidos" required>
 
-                    <label for="numeroEmergencia">Numero de contacto para emergencia.</label>
-                    <input type="number" name="numeroEmergencia" placeholder="xxx-xxx-xx-xx">
 
-                <button class="boton"> Registrar datos</button>
+<p class="subtitle">
+Datos escolares del usuario
+</p>
+
+<label>Número de control</label>
+<input type="text" name="nocontrol" placeholder="Número de control" required>
+
+<label>CURP</label>
+<input type="text" name="curp" placeholder="CURP" required>
+
+<label>Contraseña</label>
+<input type="password" name="contrasena" placeholder="Contraseña" required>
+
+<label>Tipo de usuario</label>
+
+<input type="radio" name="rol" value="2" required> Alumno
+<input type="radio" name="rol" value="3"> Docente
+<input type="radio" name="rol" value="1"> Administrador
+<input type="radio" name="rol" value="4"> Guardia
+
+
+<p class="subtitle">
+Datos opcionales del alumno
+</p>
+
+<label>Número de emergencia</label>
+<input type="text" name="numeroEmergencia" placeholder="xxx-xxx-xxxx">
+
+<button class="boton">Registrar usuario</button>
+
 </form>
-            </div>
-        </div>
-        <script src="" async defer>
-        </script>
-    </body>
+
+</div>
+</div>
+
+</body>
 </html>

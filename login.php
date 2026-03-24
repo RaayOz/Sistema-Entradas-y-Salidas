@@ -16,15 +16,15 @@ if ($resultado->num_rows > 0) {
     $usuario = $resultado->fetch_assoc();
 
     $_SESSION['usuario'] = $usuario['Nombres'];
-    $_SESSION['nocontrol'] = $usuario['NoControl'];
     $_SESSION['rol'] = $usuario['ID_Rol'];
 
-    header("Location: panel.php");
-    exit();
+    if ($usuario['ID_Rol'] == 1) {
+        header("Location: registros.php");
+    } else {
+        header("Location: panel.php");
+    }
 
 } else {
-
-    echo "No. Control o contraseña incorrectos";
-
+    echo "Número de control o contraseña incorrectos";
 }
 ?>
