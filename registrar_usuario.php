@@ -4,15 +4,14 @@ include("conexion.php");
 $nombre = $_POST['nombre'];
 $apellidos = $_POST['apellidos'];
 $nocontrol = $_POST['nocontrol'];
-$curp = $_POST['curp'];
 $contrasena = $_POST['contrasena'];
 $rol = $_POST['rol'];
 $telefono = $_POST['numeroEmergencia'];
 
 $sql = "INSERT INTO Usuario 
-(Nombres, Apellidos, NoControl, CURP, Contrasena, ID_Rol, Telefono)
+(Nombres, Apellidos, NoControl, Contrasena, ID_Rol, Telefono)
 VALUES 
-('$nombre','$apellidos','$nocontrol','$curp','$contrasena','$rol','$telefono')";
+('$nombre','$apellidos','$nocontrol','$contrasena','$rol','$telefono')";
 
 if ($conn->query($sql) === TRUE) {
 
