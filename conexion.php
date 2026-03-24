@@ -1,12 +1,14 @@
 <?php
+
 $host = "localhost";
-$usuario = "root";
+$user = "root";
 $password = "";
-$bd = "control_accesos";
+$database = "SIESA";
 
-$conexion = new mysqli($host, $usuario, $password, $bd);
+$conn = new mysqli($host, $user, $password, $database);
 
-if ($conexion->connect_error) {
-    die("Error de conexión: " . $conexion->connect_error);
+if ($conn->connect_error) {
+    die("Error de conexión: " . $conn->connect_error);
 }
+
 ?>
