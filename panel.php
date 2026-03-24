@@ -1,0 +1,25 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['usuario'])){
+    header("Location: index.php");
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Panel</title>
+</head>
+
+<body>
+
+<h1>Bienvenido <?php echo $_SESSION['usuario']; ?></h1>
+
+<p>Has iniciado sesión correctamente.</p>
+
+<a href="logout.php">Cerrar sesión</a>
+
+</body>
+</html>
