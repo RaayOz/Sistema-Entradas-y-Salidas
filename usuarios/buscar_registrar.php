@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -7,30 +6,25 @@
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Datos usuario</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <div class="container">
-            <div class="card">
+<body>  
+        <div class="card" name="buscarUsuario">
+            <form action="../includes/buscar.php" method="post">
+                <label for="buscar">Buscar usuario</label>
+                <input id="numeroControl" type="number" name="numeroControl" placeholder="Insertar numero de control">
+                <button>Buscar</button>
+            </form>
+        </div>
 
-                <h2>Ingreso de datos</h2>
-
-                <p class="subtitle">
+        <div class="card" name="registrarUsuario">
+            <p class="subtitle">
                     Datos personales del usuario.
                 </p>
 
-                <form action="includes/formHandler.inc.php" method="POST">
+                <form action="../includes/formHandler.inc.php" method="POST">
                     <label>Nombre</label>
                     <input type="text" name="nombreUsuario" placeholder="Nombre" required>
 
-                    <label for="apellidos">Apellido Paterno</label>
+                    <label for="apellidos">Apellidos</label>
                     <input type="text" name="apellidos" placeholder="Apellidos" required>
                 
 
@@ -44,13 +38,12 @@
                     <label for="numeroControl">Numero de control</label>
                     <input type="number" name="numeroControl" placeholder="Numero de control" required>
                     <!--CURP-->
-                    <label for="curp">CURP</label>
-                    <input type="text" name="curp" placeholder="curp" required>
+                    <label for="contrasena">Contrasena</label>
+                    <input type="text" name="contrasena" placeholder="Contrasena" required>
                     <!--Rol-->
-                    <input type="radio" name="tipo_usuario" value=1> Alumno
-                    <input type="radio" name="tipo_usuario" value="2"> Docente
-                    <input type="radio" name="tipo_usuario" value="3"> Admnistrador
-                    <input type="radio" name="tipo_usuario" value="4"> Guardia
+                    <input type="radio" name="tipo_usuario" value="1"> Administrador
+                    <input type="radio" name="tipo_usuario" value="2"> Guardia
+                    <input type="radio" name="tipo_usuario" value="3"> Alumno
 
                 <p class="subtitle">
                     Datos opcionales del alumno.
@@ -60,10 +53,6 @@
                     <input type="number" name="numeroEmergencia" placeholder="1234">
 
                 <button class="boton"> Registrar datos</button>
-</form>
-            </div>
+                </form>
         </div>
-        <script src="" async defer>
-        </script>
-    </body>
-</html>
+</body>

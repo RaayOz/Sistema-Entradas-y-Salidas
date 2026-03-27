@@ -1,3 +1,12 @@
+<?php
+/*TODO:
+* Perfil
+* Registrar entradas y salidas 
+* Ver historial de entradas y salidas del dia.
+* Descargar reportes del dia.
+*/
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
