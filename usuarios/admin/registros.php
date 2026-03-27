@@ -3,16 +3,8 @@
 <head>
 <meta charset="utf-8">
 <title>Registro de usuario</title>
-<link rel="stylesheet" href="styles.css">
-
-<style>
-.roles-box{
-    border:1px solid #ccc;
-    padding:10px;
-    border-radius:5px;
-    margin-bottom:15px;
-}
-</style>
+<link rel="stylesheet" href="desing/styles.css">
+<link rel="stylesheet" href="desing/roles.css">
 
 </head>
 
@@ -27,7 +19,7 @@
 Datos personales del usuario
 </p>
 
-<form action="registrar_usuario.php" method="POST">
+<form action="includes/registrar_usuario.php" method="POST">
 
 <label>Nombre</label>
 <input type="text" name="nombre" placeholder="Nombre" required>
@@ -70,23 +62,16 @@ Guardia
 Alumno
 </label>
 
-</div>
-
-
-<p class="subtitle">
-Datos opcionales
-</p>
-
-<label>Número de emergencia</label>
-<input type="number" name="numeroEmergencia" placeholder="xxx-xxx-xxxx">
+<label>Telefono</label>
+<input type="number" name="telefono" placeholder="xxx-xxx-xxxx">
 
 
 <button class="boton">Registrar usuario</button>
+
 <a href="logout.php">Cerrar sesión</a>
 
 </form>
 
-</div>
 </div>
 
 </body>

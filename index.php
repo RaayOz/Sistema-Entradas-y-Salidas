@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>SIESA</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="desing/styles.css">
 </head>
 <body>
 
@@ -20,7 +20,7 @@
             Ingresar credenciales para acceder
         </p>
 
-        <form action="login.php" method="POST">
+        <form action="includes/login.php" method="POST">
 
             <label>Número de Control</label>
             <input 

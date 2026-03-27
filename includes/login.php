@@ -19,10 +19,18 @@ if ($resultado->num_rows > 0) {
     $_SESSION['nocontrol'] = $usuario['NoControl'];
     $_SESSION['rol'] = $usuario['ID_Rol'];
 
-    if ($usuario['ID_Rol'] == 1) {
-        header("Location: registros.php");
-    } else {
-        header("Location: panel.php");
+    switch ($usuario['ID_Rol']) {
+        case 1:
+            header("location: ../usuarios/admin/inicio.php");
+            break;
+        case 2:
+            header("location: /usuarios/guardia/inicio.php");
+            break;
+        case 3:
+            header("location: ../usuarios/alumno/inicio.php");
+            break;
+        default:
+            echo "Rol no reconocido";
     }
 
 } else {

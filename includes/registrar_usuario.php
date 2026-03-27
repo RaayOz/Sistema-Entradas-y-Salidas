@@ -6,7 +6,7 @@ $apellidos = $_POST['apellidos'];
 $nocontrol = $_POST['nocontrol'];
 $contrasena = $_POST['contrasena'];
 $rol = $_POST['rol'];
-$telefono = $_POST['numeroEmergencia'];
+$telefono = $_POST['telefono'];
 
 $sql = "INSERT INTO Usuario 
 (Nombres, Apellidos, NoControl, Contrasena, ID_Rol, Telefono)
