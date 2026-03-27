@@ -3,7 +3,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") { //Requiere que los datos ingresados sean mediante el metodo POST para seguridad.
 //Variables que reciben los datos del archivo buscar_registrar.php
     //Datos personales del usuario.
-    $nombre = $_POST["nombreUsuario"];
+    $nombre = $_POST["nombre"];
     $apellidos = $_POST["apellidos"];
     //Datos Escolares del alumno.
     $correo = $_POST["correo"];
@@ -15,6 +15,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //Requiere que los datos ingresados 
 
     try {
         require_once "dbh.inc.php"; //Checa que la base de datos este conectada.
+
+        if ($pdo === null) {
+            throw new PDOException("Database connection failed.");
+        }
 
         $query = "INSERT INTO Usuario (NoControl, Nombres, Apellidos, Correo, Contrasena, Telefono, Foto, ID_Rol)
         VALUES 

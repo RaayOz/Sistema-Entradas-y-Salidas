@@ -22,7 +22,7 @@
 
                 <form action="../includes/formHandler.inc.php" method="POST">
                     <label>Nombre</label>
-                    <input type="text" name="nombreUsuario" placeholder="Nombre" required>
+                    <input type="text" name="nombre" placeholder="nombre" required>
 
                     <label for="apellidos">Apellidos</label>
                     <input type="text" name="apellidos" placeholder="Apellidos" required>
@@ -33,7 +33,7 @@
                 </p>
                     <!--Correo-->
                     <label for="correo">Correo</label>
-                    <input type="text" name="correo" placeholder="Correo" required>
+                    <input type="text" name="correo" placeholder="correo" required>
                     <!--Numero De Control-->
                     <label for="numeroControl">Numero de control</label>
                     <input type="number" name="numeroControl" placeholder="Numero de control" required>

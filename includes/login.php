@@ -8,7 +8,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //Requiere que los datos ingresados 
     $contrasena = $_POST["contrasena"];
 
     try {
-        require_once "dbh.inc.php"; //Checa que la base de datos este conectada.
 
         $query = "SELECT * FROM Usuario WHERE NoControl = :numeroControl; "; //Consulta que lee el Numero de control y manda los datos del usuario.
 
@@ -50,13 +49,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //Requiere que los datos ingresados 
                         echo "Usuario no encontrado...";
                     }
                 }
-        }
 
+                exit();
+
+            } else {
+                echo "Número de control o contraseña incorrectos";
+            }
+
+        } else {
+            echo "Usuario no encontrado";
+        }
 
         $pdo = null;
         $stmt = null;
+
     } catch (PDOException $e) {
-        die("Query Fallada" . $e->getMessage());
+
+        die("Query fallida: " . $e->getMessage());
+
     }
 }
 else {
