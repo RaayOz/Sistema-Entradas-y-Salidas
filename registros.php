@@ -28,10 +28,10 @@
 
                 <form action="includes/formHandler.inc.php" method="POST">
                     <label>Nombre</label>
-                    <input type="text" name="nombreUsuario" placeholder="Nombre" required>
+                    <input type="text" name="nombre" placeholder="nombre" required>
 
                     <label for="apellidos">Apellido Paterno</label>
-                    <input type="text" name="apellidos" placeholder="Apellidos" required>
+                    <input type="text" name="apellidos" placeholder="apellidos" required>
                 
 
                 <p class="subtitle">
@@ -39,25 +39,20 @@
                 </p>
                     <!--Correo-->
                     <label for="correo">Correo</label>
-                    <input type="text" name="correo" placeholder="Correo" required>
+                    <input type="text" name="correo" placeholder="correo" required>
                     <!--Numero De Control-->
-                    <label for="numeroControl">Numero de control</label>
-                    <input type="number" name="numeroControl" placeholder="Numero de control" required>
-                    <!--CURP-->
-                    <label for="curp">CURP</label>
-                    <input type="text" name="curp" placeholder="curp" required>
+                    <label for="nocontrol">Numero de control</label>
+                    <input type="number" name="nocontrol" placeholder="nocontrol" required>
+                    <!--Contraseña-->
+                    <label for="contrasena">Contraseña</label>
+                    <input type="text" name="contrasena" placeholder="contrasena" required>
                     <!--Rol-->
-                    <input type="radio" name="tipo_usuario" value=1> Alumno
-                    <input type="radio" name="tipo_usuario" value="2"> Docente
-                    <input type="radio" name="tipo_usuario" value="3"> Admnistrador
-                    <input type="radio" name="tipo_usuario" value="4"> Guardia
-
-                <p class="subtitle">
-                    Datos opcionales del alumno.
-                </p>
-
-                    <label for="numeroEmergencia">Numero de contacto para emergencia.</label>
-                    <input type="number" name="numeroEmergencia" placeholder="1234">
+                    <input type="radio" name="rol" value=1> Administrador
+                    <input type="radio" name="rol" value="2"> Guardia
+                    <input type="radio" name="rol" value="3"> Alumno
+                    <!--Telefono-->
+                    <label for="telefono">Numero de teléfono</label>
+                    <input type="number" name="telefono" placeholder="1234567890">
 
                 <button class="boton"> Registrar datos</button>
 </form>
