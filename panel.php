@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['usuario'])){
+if(!isset($_SESSION['usuario'], $_SESSION['nocontrol'])){ //Si no hay una sesion iniciada, manda a index.php
     header("Location: index.php");
 }
 ?>

@@ -16,6 +16,7 @@ if ($resultado->num_rows > 0) {
     $usuario = $resultado->fetch_assoc();
 
     $_SESSION['usuario'] = $usuario['Nombres'];
+    $_SESSION['nocontrol'] = $usuario['NoControl'];
     $_SESSION['rol'] = $usuario['ID_Rol'];
 
     if ($usuario['ID_Rol'] == 1) {
