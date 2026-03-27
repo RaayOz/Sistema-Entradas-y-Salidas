@@ -55,10 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //Requiere que los datos ingresados 
             } else {
                 echo "Número de control o contraseña incorrectos";
             }
-
-        } else {
-            echo "Usuario no encontrado";
-        }
+            
 
         $pdo = null;
         $stmt = null;
