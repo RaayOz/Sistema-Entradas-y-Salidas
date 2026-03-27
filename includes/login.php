@@ -66,14 +66,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = null;
 
     } catch (PDOException $e) {
-
         die("Query fallida: " . $e->getMessage());
-
     }
 
 } else {
-
     header("location: ../index.php");
-
 }
 ?>
