@@ -8,6 +8,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //Requiere que los datos ingresados 
     try {
         require_once "dbh.inc.php"; //Checa que la base de datos este conectada.
 
+        if (!$pdo) {
+            throw new PDOException("Database connection failed");
+        }
+
         $query = "SELECT * FROM Usuario WHERE NoControl = :numeroControl; ";
 
         $stmt = $pdo->prepare($query);
