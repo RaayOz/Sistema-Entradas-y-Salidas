@@ -1,5 +1,12 @@
-
 <!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Datos de usuario</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+
 <html>
     <head>
         <meta charset="utf-8">

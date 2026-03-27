@@ -7,5 +7,5 @@
 </head>
 
 <body>
-    <h1>Pagina para datos de docente</h1>
+    <h1>Pagina para datos del administrador</h1>
 </body>

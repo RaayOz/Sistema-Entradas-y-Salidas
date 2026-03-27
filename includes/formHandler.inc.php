@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //Requiere que los datos ingresados 
 
         $pdo = null;
         $stmt = null;
-        header("location: ../Usuarios/buscar_registrar.php");
+        header("location: ../registros.php");
     } catch (PDOException $e) {
         die("Query Fallada" . $e->getMessage());
     }

@@ -16,30 +16,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //Requiere que los datos ingresados 
         $stmt->bindParam(":numeroControl", $numeroControl);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        
+
         if ((count($result)) > 0) 
             {
                 foreach ($result as $row) {
                     if ($row["Contrasena"] == $contrasena){
                         switch ($row["ID_Rol"]) {
-                            case 3:
-                                {
-                                    header("location: ../Usuarios/alumno.php");
-                                    break;
-                                }
-                            case 4:
-                                {
-                                    header("location: ../Usuarios/Docente.php");
-                                    break;
-                                }
                             case 1:
                                 {
-                                    header("location: ../Usuarios/buscar_registrar.php");
+                                    header("location: ../usuarios/admin.php");
                                     break;
                                 }
                             case 2:
                                 {
-                                    header("location: ../Usuarios/Guardia.php");
+                                    header("location: ../usuarios/guardia.php");
+                                    break;
+                                }
+                                case 3:
+                                {
+                                    header("location: ../usuarios/alumno.php");
                                     break;
                                 }
                             default:
