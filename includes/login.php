@@ -24,7 +24,7 @@ if ($resultado->num_rows > 0) {
             header("location: ../usuarios/admin/inicio.php");
             break;
         case 2:
-            header("location: /usuarios/guardia/inicio.php");
+            header("location: ../usuarios/guardia/inicio.php");
             break;
         case 3:
             header("location: ../usuarios/alumno/inicio.php");
