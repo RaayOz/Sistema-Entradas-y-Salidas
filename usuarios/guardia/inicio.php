@@ -19,7 +19,7 @@ if(!isset($_SESSION['usuario'], $_SESSION['nocontrol'])){ //Si no hay una sesion
 
 <p>Numero de Control: <?php echo $_SESSION['nocontrol']; ?></p>
 
-<a href="../includes/logout.php">Cerrar sesión</a>
+<a href="../../includes/logout.php">Cerrar sesión</a>
 
 </body>
 </html>

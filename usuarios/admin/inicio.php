@@ -21,7 +21,7 @@ if(!isset($_SESSION['usuario'], $_SESSION['nocontrol'])){ //Si no hay una sesion
 
 <a href="registros.php">Registrar Usuario</a>
 
-<a href="../includes/logout.php">Cerrar sesión</a>
+<a href="../../includes/logout.php">Cerrar sesión</a>
 
 </body>
 </html>

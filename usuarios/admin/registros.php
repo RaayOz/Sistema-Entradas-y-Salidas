@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <title>Registro de usuario</title>
-<link rel="stylesheet" href="desing/styles.css">
-<link rel="stylesheet" href="desing/roles.css">
+<link rel="stylesheet" href="../../desing/styles.css">
+<link rel="stylesheet" href="../../desing/roles.css">
 
 </head>
 
@@ -18,9 +18,7 @@
 <p class="subtitle">
 Datos personales del usuario
 </p>
-
-<form action="includes/registrar_usuario.php" method="POST">
-
+<form action="../../includes/registrar_usuario.php" method="POST">
 <label>Nombre</label>
 <input type="text" name="nombre" placeholder="Nombre" required>
 
@@ -68,7 +66,7 @@ Alumno
 
 <button class="boton">Registrar usuario</button>
 
-<a href="logout.php">Cerrar sesión</a>
+<a href="../../includes/logout.php">Cerrar sesión</a>
 
 </form>
 
