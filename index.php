@@ -9,11 +9,9 @@
 
 <div class="container">
     <div class="card">
-
         <div class="logo">
             <img src="img/logo.png" alt="Logo SIESA">
         </div>
-
         <h2>Sistema de Información de Entrada y Salida de Alumnos</h2>
 
         <p class="subtitle">
@@ -21,7 +19,6 @@
         </p>
 
         <form action="includes/login.php" method="POST">
-
             <label>Número de Control</label>
             <input 
                 type="text" 
@@ -43,9 +40,7 @@
             <button type="submit" class="boton">
                 Iniciar Sesión
             </button>
-
         </form>
-
     </div>
 </div>
 

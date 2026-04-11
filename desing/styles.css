@@ -49,9 +49,10 @@ form {
 
 label {
     font-size: 14px;
+    margin-bottom: 15px;
 }
 
-input {
+input, select {
     width: 100%;
     padding: 10px;
     margin: 8px 0 15px 0;
@@ -60,7 +61,7 @@ input {
 }
 
 .boton {
-    width: 104.2%;
+    width: 100%;
     padding: 10px;
     background-color: #1800ad;
     color: white;
