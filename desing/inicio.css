@@ -1,0 +1,137 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f5f9;
+    color: #1f2937;
+}
+
+.page {
+    width: min(1100px, 92%);
+    margin: 32px auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #112d63;
+}
+
+.header p {
+    margin: 6px 0 0;
+    color: #4b5563;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-weight: bold;
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background: #193c8f;
+    color: #fff;
+}
+
+.btn-light {
+    background: #fff;
+    border-color: #d1d5db;
+    color: #111827;
+}
+
+.user-grid {
+    display: grid;
+    gap: 18px;
+}
+
+.user-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 0 2px 8px rgba(17, 24, 39, 0.08);
+}
+
+.user-top {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+.avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    background: #dbeafe;
+    color: #1e3a8a;
+    font-size: 38px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.user-name {
+    margin: 0;
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+.user-line {
+    margin: 6px 0 0;
+    color: #4b5563;
+    font-size: 19px;
+}
+
+.meta-grid {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+}
+
+.meta-item {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 10px 12px;
+}
+
+.meta-item span {
+    display: block;
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.meta-item strong {
+    color: #111827;
+}
+
+.empty {
+    background: #fff;
+    border: 1px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 26px;
+    text-align: center;
+    color: #6b7280;
+}
