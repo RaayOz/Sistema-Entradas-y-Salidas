@@ -7,11 +7,13 @@
 </head>
 <body>
 
-<div class="container">
-    <div class="card">
-        <h1>Registrar Acceso</h1>
-        <form action="../../includes/accesos.php" method="POST">
-            <label for="entradasalida">Tipo de Acceso:</label>
+    <?php include("sidebar.php"); ?>
+
+    <div class="container">
+        <div class="card">
+            <h1>Registrar Acceso</h1>
+            <form action="../../includes/accesos.php" method="POST">
+                <label for="entradasalida">Tipo de Acceso:</label>
             <select id="entradasalida" name="entradasalida" required>
                 <option value="">Selecciona una opción</option>
                 <option value="Entrada">Entrada</option>
@@ -35,7 +37,6 @@
             <input type="text" id="lugar" name="lugar" required>
 
             <button class="boton">Registrar Acceso</button>
-        <button class="boton" onclick="window.location.href='inicio.php'">Volver al Inicio</button>
     </div>
 
 </body>

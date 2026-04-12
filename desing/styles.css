@@ -20,7 +20,6 @@ body {
 }
 
 .card {
-    background-color: #ffffff;
     width: 500px;
     padding: 50px;
     border-radius: 10px;
@@ -30,7 +29,6 @@ body {
 
 .logo img {
     width: 250px;
-    margin-bottom: none;
 }
 
 h2 {
@@ -58,19 +56,4 @@ input, select {
     margin: 8px 0 15px 0;
     border-radius: 5px;
     border: 1px solid #ccc;
-}
-
-.boton {
-    width: 100%;
-    padding: 10px;
-    background-color: #1800ad;
-    color: white;
-    border: 1px solid #000000;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-button:hover {
-    background-color: #000000;
 }

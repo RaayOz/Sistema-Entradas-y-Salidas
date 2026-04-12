@@ -14,17 +14,15 @@ if(!isset($_SESSION['usuario'], $_SESSION['nocontrol'])){ //Si no hay una sesion
 </head>
 <body>
 
-<div class="container">
-    <div class="card">
-        <h1>Bienvenido <?php echo $_SESSION['usuario']; ?></h1>
-        
-        <p>Numero de Control: <?php echo $_SESSION['nocontrol']; ?></p>
-        
-        <button class="boton" onclick="window.location.href='registros.php'">Registrar Usuario</button>
+    <?php include("sidebar.php"); ?>
 
-        <button class="boton" onclick="window.location.href='../../includes/logout.php'">Cerrar sesión</button>
+    <div class="container">
+        <div class="card">
+            <h1>Bienvenido <?php echo $_SESSION['usuario']; ?></h1>
+        
+            <p>Numero de Control: <?php echo $_SESSION['nocontrol']; ?></p>
+        </div>
     </div>
-</div>
 
 </body>
 </html>
