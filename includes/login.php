@@ -1,75 +1,70 @@
 <?php
-ini_set('display_errors', 1);
+//ini_set('display_errors', 1); // Esto solo se usa para debugging, imprime cualquier error de php.
 session_start();
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $nocontrol = $_POST["nocontrol"];
+if ($_SERVER["REQUEST_METHOD"] == "POST") { //Requiere que los datos ingresados sean mediante el metodo POST para seguridad.
+    //Datos personales del usuario.
+    $numeroControl = $_POST["numeroControl"];
     $contrasena = $_POST["contrasena"];
 
+    //Almacena los datos de la sesion
+    $_SESSION["sesionControl"] = $numeroControl;
+    $_SESSION["sesionContrasena"] = $contrasena;
     try {
+        require_once "dbh.inc.php"; //Checa que la base de datos este conectada.
 
-        require_once "dbh.inc.php";
+        $query = "SELECT * FROM Usuario WHERE NoControl = :numeroControl; "; //Consulta que lee el Numero de control y manda los datos del usuario.
 
-        if (!$pdo) {
-            throw new PDOException("Database connection failed");
-        }
+        $stmt = $pdo->prepare($query); //Prepara la consulta.
 
-        $query = "SELECT * FROM Usuario WHERE NoControl = :nocontrol";
-
-        $stmt = $pdo->prepare($query);
-
-        $stmt->bindParam(":nocontrol", $nocontrol);
-
+        $stmt->bindParam(":numeroControl", $numeroControl); //Manda a la consulta el numero de control
         $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC); //Manda todos los datos de la consulta a un arreglo para utilizarlo en php.
 
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($result) {
-
-            if ($result["Contrasena"] == $contrasena) {
-
-                $_SESSION["nombre"] = $result["Nombres"];
-                $_SESSION["nocontrol"] = $result["NoControl"];
-                $_SESSION["rol"] = $result["ID_Rol"];
-
-                switch ($result["ID_Rol"]) {
-
-                    case 1:
-                        header("location: ../usuarios/admin.php");
-                        break;
-
-                    case 2:
-                        header("location: ../usuarios/guardia.php");
-                        break;
-
-                    case 3:
-                        header("location: ../usuarios/alumno.php");
-                        break;
-
-                    default:
-                        echo "Error no previsto...";
-                        break;
+        if ((count($result)) > 0) 
+            {
+                foreach ($result as $row) {
+                    if ($row["Contrasena"] == $contrasena){
+                        switch ($row["ID_Rol"]) {
+                            case 1: //Manda a pagina para admin
+                                {   //Porfa NO muevan los nombres de los archivos
+                                    header("location: ../usuarios/admin/admin.php");
+                                    break;
+                                }
+                            case 2: //Manda a Guardia
+                                {
+                                    header("location: ../usuarios/guardia.php");
+                                    break;
+                                }
+                                case 3: //Manda a Alumno.
+                                {
+                                    header("location: ../usuarios/alumno.php");
+                                    break;
+                                }
+                            default: //Por si hay errores.
+                            {
+                                echo "Error no previsto...";
+                                break;
+                            }
+                        }
+                    }
+                    else { //Cuando no exista el numero de control
+                        //TODO: Hacer que esto se vea bonito.
+                        echo "Contrasena equivocada...";
+                    }
                 }
+             }
+             else {
+                echo "Usuario no encontrado...";
+             }
 
-                exit();
-
-            } else {
-                echo "Número de control o contraseña incorrectos";
-            }
-
-        } else {
-            echo "Usuario no encontrado";
-        }
 
         $pdo = null;
         $stmt = null;
-
     } catch (PDOException $e) {
-        die("Query fallida: " . $e->getMessage());
+        die("Query Fallada" . $e->getMessage());
     }
-
-} else {
-    header("location: ../index.php");
+}
+else {
+    header("location: ../index.php"); //Regresa a index si se intenta ingresar datos malos.
 }
 ?>

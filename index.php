@@ -1,52 +1,37 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>SIESA</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<title>Inicio de Sesión</title>
+<link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
 <div class="container">
-    <div class="card">
+<div class="card">
 
-        <div class="logo">
-            <img src="img/logo.png" alt="Logo SIESA">
-        </div>
+<div class="logo">
+<img src="img/logo.png">
+</div>
 
-        <h2>Sistema de Información de Entrada y Salida de Alumnos</h2>
+<h2>Inicio de Sesión</h2>
+<p class="subtitle">Sistema SIESA</p>
 
-        <p class="subtitle">
-            Ingresar credenciales para acceder
-        </p>
+<form action="includes/login.php" method="POST">
 
-        <form action="includes/login.php" method="POST">
+    <label>Numero De Control</label>
+    <input type="number" name="numeroControl" required>
 
-            <label>Número de Control</label>
-            <input 
-                type="text"
-                name="nocontrol"
-                id="numero_control"
-                placeholder="Número de Control"
-                required
-            >
+    <label>CURP</label>
+    <input type="password" name="contrasena" required>
 
-            <label>Contraseña</label>
-            <input 
-                type="password"
-                name="contrasena"
-                id="password"
-                placeholder="Contraseña"
-                required
-            >
-            
-            <button type="submit" class="boton">
-                Iniciar Sesión
-            </button>
+    <button class="boton" type="submit">Iniciar Sesión</button>
 
-        </form>
+</form>
 
-    </div>
+</div>
 </div>
 
 </body>

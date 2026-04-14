@@ -1,5 +1,7 @@
 <?php
-ini_set('display_errors', 1);
+//ini_set('display_errors', 1);
+//TODO: Quiero que poder hacer mas consultas sin tener que regresar a la pagina anterior.
+//TODO: Tambien quiero que se pueda modificar los datos del usuario que se busco sin tener que entrar a PHPMyAdmin.
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") { //Requiere que los datos ingresados sean mediante el metodo POST para seguridad.
     //Datos personales del usuario.
@@ -7,10 +9,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //Requiere que los datos ingresados 
 
     try {
         require_once "dbh.inc.php"; //Checa que la base de datos este conectada.
-
-        if (!$pdo) {
-            throw new PDOException("Database connection failed");
-        }
 
         $query = "SELECT * FROM Usuario WHERE NoControl = :numeroControl; ";
 

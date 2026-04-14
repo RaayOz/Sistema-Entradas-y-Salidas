@@ -1,35 +1,35 @@
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") { //Requiere que los datos ingresados sean mediante el metodo POST para seguridad.
+//Variables que reciben los datos del archivo buscar_registrar.php
     //Datos personales del usuario.
-    $nombre = $_POST["nombre"];
+    $nombre = $_POST["nombreUsuario"];
     $apellidos = $_POST["apellidos"];
     //Datos Escolares del alumno.
     $correo = $_POST["correo"];
-    $nocontrol = $_POST["nocontrol"];
+    $numeroControl = $_POST["numeroControl"];
     $contrasena = $_POST["contrasena"];
-    $rol = $_POST["rol"];
-    $telefono = $_POST["telefono"];
+    $tipo_usuario = $_POST["tipo_usuario"];
+    //Datos extras
+    $telefono = $_POST["numeroEmergencia"];
 
     try {
         require_once "dbh.inc.php"; //Checa que la base de datos este conectada.
 
-        if ($pdo === null) {
-            throw new PDOException("Database connection failed.");
-        }
-
         $query = "INSERT INTO Usuario (NoControl, Nombres, Apellidos, Correo, Contrasena, Telefono, Foto, ID_Rol)
         VALUES 
-        (?, ?, ?, ?, ?, ?, ?, ?);";
+        (?, ?, ?, ?, ?, ?, ?, ?);"; //Crea una consulta para ingresar datos a la base.
 
-        $stmt = $pdo->prepare($query);
+        $stmt = $pdo->prepare($query);//Prepara la consulta.
 
-        $stmt->execute([$nocontrol, $nombre, $apellidos, $correo, $contrasena, $telefono, "Esta es una foto.", $rol]);
+        $stmt->execute([$numeroControl, $nombre, $apellidos, $correo, $contrasena, $telefono, "Esta es una foto.", $tipo_usuario]); //Asigna las variables a los datos.
 
+        //Cierra la conexion por seguridad y reinicia la pagina.
         $pdo = null;
         $stmt = null;
-        header("location: ../registros.php");
-    } catch (PDOException $e) {
+        header("location: ../usuarios/admin/registrar.php");
+    } catch (PDOException $e) { 
+        //Por si hay un fallo en la conexion.
         die("Query Fallada" . $e->getMessage());
     }
 }

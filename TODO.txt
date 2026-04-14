@@ -1,0 +1,15 @@
+//Ontiveros
+*Mover los archivos alumno y guardia a su folder y arreglar sus links
+*Agregar el logout bien
+*Darle la opcion al usuario de cambiar los datos
+*Hacer la funcion de registro de vehiculos
+*Mover lo de buscar a otra pagina
+
+//Diseno
+*Basicamente todo lol
+*Chequen como hacer la barra al lado
+
+//Seguridad
+*Todo eso de los tokens
+*Validar la contra al crear usuario
+*Que la contra tenga un formato
