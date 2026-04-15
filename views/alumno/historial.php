@@ -29,6 +29,7 @@ include("../../includes/historial.php");
         <th>NOMBRE COMPLETO</th>
         <th>NUMERO DE CONTROL</th>
         <th>ACCESO</th>
+        <th>METODO DE ACCESO</th>
         <th>ID CARRO</th>
         <th>ID GUARDIA</th>
     </tr>
