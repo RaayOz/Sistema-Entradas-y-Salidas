@@ -16,6 +16,7 @@ include("../../includes/historial.php");
     <title>Historial</title>
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <link rel="stylesheet" href="../../assets/css/table.css">
+    <link rel="stylesheet" href="../../assets/css/background.css">
 </head>
 <body>
 
