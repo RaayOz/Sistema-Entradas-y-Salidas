@@ -45,3 +45,18 @@ h2 {
     font-size: 30px;
     margin: 5px 0;
 }
+
+.boton {
+    width: 100%;
+    padding: 10px;
+    text-align: start;
+    background-color: #1800ad;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #000000;
+}

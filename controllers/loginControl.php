@@ -2,6 +2,8 @@
 session_start();
 include("conexion.php");
 
+session_regenerate_id(true);
+
 $nocontrol = $_POST['nocontrol'];
 $contrasena = $_POST['contrasena'];
 
@@ -22,13 +24,16 @@ if ($resultado->num_rows > 0) {
     switch ($usuario['ID_Rol']) {
         case 1:
             header("location: ../usuarios/admin/inicio.php");
-            break;
+            exit;
+
         case 2:
             header("location: ../usuarios/guardia/inicio.php");
-            break;
+            exit;
+
         case 3:
             header("location: ../usuarios/alumno/inicio.php");
-            break;
+            exit;
+
         default:
             echo "Rol no reconocido";
     }
