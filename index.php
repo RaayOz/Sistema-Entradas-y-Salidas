@@ -1,28 +1,47 @@
-<?php
-session_start();
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>SIESA</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/button.css">
+</head>
+<body>
 
-if(isset($_SESSION['usuario'])){
+    <div class="container">
+        <div class="card">
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo SIESA">
+            </div>
+            <h2>Sistema de Información de Entrada y Salida de Alumnos</h2>
 
-    switch ($_SESSION['rol']) {
-        case 1:
-            header("location: ../usuarios/admin/inicio.php");
-            exit;
+            <p class="subtitle">
+                Ingresar credenciales para acceder
+            </p>
 
-        case 2:
-            header("location: ../usuarios/guardia/inicio.php");
-            exit;
+            <form action="controllers/loginControl.php" method="POST">
+                <label>Número de Control</label>
+                <input 
+                    type="text" 
+                    name="nocontrol"
+                    id="numero_control"
+                    placeholder="Número de Control"
+                    required
+                >
 
-        case 3:
-            header("location: ../usuarios/alumno/inicio.php");
-            exit;
+                <label>Contraseña</label>
+                <input 
+                    type="password" 
+                    name="contrasena"
+                    id="password"
+                    placeholder="Contraseña"
+                    required
+                >
+            
+                <button type="submit" class="botonc">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
 
-        default:
-            header("location: views/login.php");
-            exit;
-    }
-
-}else{
-    header("Location: views/login.php");
-    exit;
-}
-?>
+</body>
+</html>

@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8">
     <title>Registro de Usuario</title>
-    <link rel="stylesheet" href="../../desing/styles.css">
-    <link rel="stylesheet" href="../../desing/button.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/button.css">
+    <link rel="stylesheet" href="../../assets/css/background.css">
 </head>
 <body>
     
@@ -41,7 +42,7 @@
                 <label>Telefono</label>
                 <input type="number" name="telefono" placeholder="xxx-xxx-xxxx" required>
             
-                <button class="boton">Registrar Usuario</button>
+                <button class="botonc">Registrar Usuario</button>
             </form>
         </div>
     </div>

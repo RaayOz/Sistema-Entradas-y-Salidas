@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("conexion.php");
+include("../config/conexion.php");
 
 session_regenerate_id(true);
 
@@ -23,15 +23,15 @@ if ($resultado->num_rows > 0) {
 
     switch ($usuario['ID_Rol']) {
         case 1:
-            header("location: ../usuarios/admin/inicio.php");
+            header("location: ../views/admin/inicio.php");
             exit;
 
         case 2:
-            header("location: ../usuarios/guardia/inicio.php");
+            header("location: ../views/guardia/inicio.php");
             exit;
 
         case 3:
-            header("location: ../usuarios/alumno/inicio.php");
+            header("location: ../views/alumno/inicio.php");
             exit;
 
         default:

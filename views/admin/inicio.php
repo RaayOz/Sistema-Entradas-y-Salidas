@@ -12,8 +12,8 @@ if(!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_S
 <head>
     <meta charset="UTF-8">
     <title>Inicio</title>
-    <link rel="stylesheet" href="../../desing/styles.css">
-    <link rel="stylesheet" href="../../desing/background.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/background.css">
 </head>
 <body>
 

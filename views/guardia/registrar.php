@@ -2,8 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Registrar Acceso</title>
-    <link rel="stylesheet" href="../../desing/styles.css">
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/button.css">
+    <link rel="stylesheet" href="../../assets/css/background.css">
 </head>
 <body>
 
@@ -13,7 +15,8 @@
         <div class="card">
             <h1>Registrar Acceso</h1>
             <form action="../../includes/accesos.php" method="POST">
-                <label for="entradasalida">Tipo de Acceso:</label>
+                
+            <label for="entradasalida">Tipo de Acceso:</label>
             <select id="entradasalida" name="entradasalida" required>
                 <option value="">Selecciona una opción</option>
                 <option value="Entrada">Entrada</option>
@@ -34,9 +37,13 @@
             <input type="time" id="hora" name="hora" required>
 
             <label for="lugar">Lugar:</label>
-            <input type="text" id="lugar" name="lugar" required>
+            <select id="lugar" name="lugar" required>
+                <option value="">Selecciona una opción</option>
+                <option value="Entrada">Unidad Tomas de Aquino</option>
+                <option value="Salida">Unidad de Otay</option>
+            </select>
 
-            <button class="boton">Registrar Acceso</button>
+            <button class="botonc">Registrar Acceso</button>
     </div>
 
 </body>
