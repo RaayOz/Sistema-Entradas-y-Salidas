@@ -1,7 +1,9 @@
 <?php
 session_start();
-if(!isset($_SESSION['usuario'], $_SESSION['nocontrol'])){ //Si no hay una sesion iniciada, manda a index.php
-    header("Location: index.php");
+
+if(!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_SESSION['rol'] != 1){
+    header("Location: ../../index.php");
+    exit;
 }
 ?>
 
@@ -11,6 +13,7 @@ if(!isset($_SESSION['usuario'], $_SESSION['nocontrol'])){ //Si no hay una sesion
     <meta charset="UTF-8">
     <title>Inicio</title>
     <link rel="stylesheet" href="../../desing/styles.css">
+    <link rel="stylesheet" href="../../desing/background.css">
 </head>
 <body>
 

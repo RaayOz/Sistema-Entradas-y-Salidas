@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Registro de Usuario</title>
     <link rel="stylesheet" href="../../desing/styles.css">
-    <link rel="stylesheet" href="../../desing/boton.css">
+    <link rel="stylesheet" href="../../desing/button.css">
 </head>
 <body>
     
@@ -41,7 +41,7 @@
                 <label>Telefono</label>
                 <input type="number" name="telefono" placeholder="xxx-xxx-xxxx" required>
             
-                <button class="botoncentro">Registrar Usuario</button>
+                <button class="boton">Registrar Usuario</button>
             </form>
         </div>
     </div>

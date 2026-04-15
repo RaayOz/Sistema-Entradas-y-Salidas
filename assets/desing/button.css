@@ -1,4 +1,4 @@
-.botoncentro {
+.boton {
     width: 100%;
     padding: 10px;
     text-align: center;
@@ -6,17 +6,6 @@
     color: white;
     border: 1px solid #000000;
     border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.botonstart {
-    width: 100%;
-    padding: 10px;
-    text-align: start;
-    background-color: #1800ad;
-    color: white;
-    border: none;
     cursor: pointer;
     font-weight: bold;
 }
