@@ -1,5 +1,5 @@
 <?php
-include("conexion.php");
+include("../config/conexion.php");
 
 $nombre = $_POST['nombre'];
 $apellidos = $_POST['apellidos'];
@@ -16,7 +16,7 @@ VALUES
 
 if ($conn->query($sql) === TRUE) {
     echo "Usuario registrado correctamente";
-    echo '<button class="boton" onclick="window.location.href=\'../usuarios/admin/inicio.php\'">Volver al Inicio</button>';
+    echo '<button class="boton" onclick="window.location.href=\'../views/admin/inicio.php\'">Volver al Inicio</button>';
 } else {
     echo "Error: " . $conn->error;
 }

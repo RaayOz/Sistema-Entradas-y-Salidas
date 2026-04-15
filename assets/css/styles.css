@@ -20,6 +20,7 @@ body {
 }
 
 .card {
+    background: white;
     width: 500px;
     padding: 50px;
     border-radius: 10px;
@@ -29,6 +30,12 @@ body {
 
 .logo img {
     width: 250px;
+}
+
+h1 {
+    font-size: 40px;
+    margin: 20px 0;
+    text-align: center;
 }
 
 h2 {

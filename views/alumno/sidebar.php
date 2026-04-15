@@ -11,10 +11,9 @@
         <div class="sidebar">
             <h2>SIESA</h2>
 
-            <div class="botonstart">
-                <button class="boton" onclick="window.location.href='inicio.php'">Inicio</button>
-                <button class="boton" onclick="window.location.href='../../controllers/logoutControl.php'">Cerrar Sesión</button>
-            </div>
+            <button class="boton" onclick="window.location.href='inicio.php'">Inicio</button>
+            <button class="boton" onclick="window.location.href='historial.php'">Historial</button>
+            <button class="boton" onclick="window.location.href='../../controllers/logoutControl.php'">Cerrar Sesión</button>
         </div>
     </div>
 

@@ -13,9 +13,9 @@
 
     <div class="container">
         <div class="card">
-            <h2>Ingreso de datos</h2>
+            <h1>Ingreso de Datos</h1>
+            <form action="../../includes/usuarios.php" method="POST">
 
-            <form action="../../includes/registrar_usuario.php" method="POST">
                 <label>Nombre</label>
                 <input type="text" name="nombre" placeholder="Nombre" required>
             
