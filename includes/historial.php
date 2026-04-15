@@ -12,6 +12,7 @@ if($resUser && $resUser->num_rows > 0){
     $id_usuario = $user['ID_Usuario'];
 
 $sql = "SELECT 
+            r.Fecha,
             r.Hora,
             r.EntradaSalida,
             r.MetodoAcceso,

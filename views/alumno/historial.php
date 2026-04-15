@@ -26,10 +26,11 @@ include("../../includes/historial.php");
 
 <table>
     <tr>
+        <th>FECHA</th>
         <th>HORA</th>
         <th>NOMBRE COMPLETO</th>
         <th>NUMERO DE CONTROL</th>
-        <th>ACCESO</th>
+        <th>TIPO DE ACCESO</th>
         <th>METODO DE ACCESO</th>
         <th>ID CARRO</th>
         <th>ID GUARDIA</th>
@@ -40,6 +41,7 @@ include("../../includes/historial.php");
         <?php while($row = $result->fetch_assoc()){ ?>
 
         <tr>
+            <td><?= $row['Fecha'] ?></td>
             <td><?= $row['Hora'] ?></td>
             <td><?= $row['NombreCompleto'] ?></td>
             <td><?= $row['NoControl'] ?></td>
