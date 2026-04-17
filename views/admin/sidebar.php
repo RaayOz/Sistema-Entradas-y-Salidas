@@ -1,21 +1,17 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Inicio</title>
-    <link rel="stylesheet" href="../../assets/css/sidebar.css">
-</head>
-<body>
-
-    <div class="layout">
-        <div class="sidebar">
-            <h2>SIESA</h2>
-
-            <button class="boton" onclick="window.location.href='inicio.php'">Inicio</button>
-            <button class="boton" onclick="window.location.href='registros.php'">Registrar Usuario</button>
-            <button class="boton" onclick="window.location.href='../../controllers/logoutControl.php'">Cerrar Sesión</button>
-        </div>
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <h2 style="color: white; text-align: center;"></h2>
     </div>
 
-</body>
-</html>
+    <nav class="sidebar-menu" style="display: flex; flex-direction: column;">
+        <button class="boton-sidebar" onclick="window.location.href='inicio.php'">
+            <span class="icon">🏠</span> <span class="text">Inicio</span>
+        </button>
+        <button class="boton-sidebar" onclick="window.location.href='registros.php'">
+            <span class="icon">📝</span> <span class="text">Registrar</span>
+        </button>
+        <button class="boton-sidebar" onclick="window.location.href='../../controllers/logoutControl.php'">
+            <span class="icon">🚪</span> <span class="text">Salir</span>
+        </button>
+    </nav>
+</div>

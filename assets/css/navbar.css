@@ -1,0 +1,62 @@
+.main-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    background-color: #1a1a1a;
+    color: white;
+    padding: 0 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.navbar-left {
+    display: flex;
+    align-items: left;
+    gap: 25px;
+}
+
+/* Contenedor de la derecha (donde está el nombre) */
+.navbar-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;          /* Toma todo el espacio disponible */
+    min-width: 0;     /* Evita que el contenedor se rompa */
+    padding-right: 20px;
+}
+
+/* El texto del nombre de usuario */
+.user-display {
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    white-space: nowrap;    /* No deja que el nombre salte de línea */
+    overflow: hidden;       /* Esconde lo que no quepa */
+    text-overflow: ellipsis; /* Pone "..." si el nombre es de 50 letras */
+    margin-left: 15px;      /* Separa el nombre del logo SIESA */
+}
+
+
+.toggle-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.nav-logo {
+    height: 45px;
+}
+
+.brand-name {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+    font-family: 'Arial Black', sans-serif;
+}

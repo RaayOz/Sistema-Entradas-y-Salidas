@@ -11,7 +11,7 @@
     <div class="container">
         <div class="card">
             <div class="logo">
-                <img src="img/logo.png" alt="Logo SIESA">
+                <img src="assets/img/logo.png" alt="Logo SIESA">
             </div>
             <h2>Sistema de Información de Entrada y Salida de Alumnos</h2>
 

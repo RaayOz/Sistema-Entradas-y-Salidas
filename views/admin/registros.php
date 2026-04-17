@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+// Si quieres que solo el Admin entre aquí, deja tu validación:
+if(!isset($_SESSION['usuario'])){
+    header("Location: ../../index.php");
+    exit;
+}
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,10 +17,13 @@
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <link rel="stylesheet" href="../../assets/css/button.css">
     <link rel="stylesheet" href="../../assets/css/background.css">
+    <link rel="stylesheet" href="../../assets/css/navbar.css">
+    <link rel="stylesheet" href="../../assets/css/sidebar.css">
 </head>
 <body>
     
     <?php include("sidebar.php"); ?>
+    <?php include("navbar.php"); ?>
 
     <div class="container">
         <div class="card">
@@ -46,6 +60,18 @@
             </form>
         </div>
     </div>
+
+
+    <script>
+        const btn = document.getElementById('toggleSidebar');
+        const sidebar = document.getElementById('sidebar');
+        const content = document.getElementById('main-content');
+
+        btn.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            content.classList.toggle('pushed');
+        });
+    </script>
 
 </body>
 </html>
