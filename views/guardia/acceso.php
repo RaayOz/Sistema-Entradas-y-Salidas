@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_SESSION['rol'] != 1){
+if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_SESSION['rol'] != 2) {
     header("Location: ../../index.php");
     exit;
 }
@@ -9,6 +9,7 @@ if(!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_S
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>Registro de Acceso</title>
@@ -19,14 +20,17 @@ if(!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_S
     <link rel="stylesheet" href="../../assets/css/access.css">
     <link rel="stylesheet" href="../../assets/css/background.css">
 </head>
+
 <body>
-    <?php include("navbar.php"); ?>
-    <?php include("sidebar.php"); ?>
-    
-    <div class="selector">
-        <a class="opcion" href="usuario.php"><span class="icono">🚶</span>Registrar Usuarios</a>
-        
-        <a class="opcion" href="vehiculo.php"><span class="icono">🚗</span>Registrar Vehículos</a>
+    <?php include("../components/navbar.php"); ?>
+    <?php include("../components/sidebar.php"); ?>
+
+    <div class=main-container id="main-content">
+        <div class="selector">
+            <a class="opcion" href="peatonal.php"><span class="icono">🚶</span>Acceso Peatonal</a>
+
+            <a class="opcion" href="vehicular.php"><span class="icono">🚗</span>Acceso Vehicular</a>
+        </div>
     </div>
 
     <script>
@@ -36,28 +40,30 @@ if(!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_S
 
         btn.addEventListener('click', () => {
             // 'active' mueve el sidebar de -250px a 0
-        sidebar.classList.toggle('active');
-        // 'pushed' mueve el contenido de 0 a 250px
-        content.classList.toggle('pushed');
+            sidebar.classList.toggle('active');
+            // 'pushed' mueve el contenido de 0 a 250px
+            content.classList.toggle('pushed');
         });
     </script>
 
     <style>
         .main-container {
-        /* Empieza pegado a la izquierda porque el sidebar está oculto */
-        margin-left: 0; 
-        margin-top: 70px;
-        padding: 40px;
-        transition: margin-left 0.3s ease;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: calc(100vh - 70px);
-    }
+            /* Empieza pegado a la izquierda porque el sidebar está oculto */
+            margin-left: 0;
+            margin-top: 70px;
+            padding: 40px;
+            transition: margin-left 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 70px);
+        }
+
         /* Cuando el sidebar aparece, empujamos el contenido 250px */
         .main-container.pushed {
-        margin-left: 250px;
-    }
+            margin-left: 250px;
+        }
     </style>
 </body>
+
 </html>

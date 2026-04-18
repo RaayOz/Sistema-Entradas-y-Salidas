@@ -8,24 +8,25 @@ if(!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_S
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Inicio</title>
+    <meta charset="utf-8">
+    <title>Registro de Acceso</title>
     <link rel="stylesheet" href="../../assets/css/navbar.css">
     <link rel="stylesheet" href="../../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/button.css">
     <link rel="stylesheet" href="../../assets/css/styles.css">
-    <link rel="stylesheet" href="../../assets/css/background.css"> 
+    <link rel="stylesheet" href="../../assets/css/access.css">
+    <link rel="stylesheet" href="../../assets/css/background.css">
 </head>
 <body>
     <?php include("../components/navbar.php"); ?>
     <?php include("../components/sidebar.php"); ?>
-
-    <div class="main-container" id="main-content">
-        <div class="card">
-            <h1>Bienvenido <?php echo $_SESSION['usuario']; ?></h1>
-            <p>Número de Control: <?php echo $_SESSION['nocontrol']; ?></p>
-        </div>
+    
+    <div class="selector">
+        <a class="opcion" href="peatonalV.php"><span class="icono">🚶</span>Acceso Peatonal</a>
+        
+        <a class="opcion" href="vehicularV.php"><span class="icono">🚗</span>Acceso Vehicular</a>
     </div>
 
     <script>
