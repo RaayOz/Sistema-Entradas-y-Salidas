@@ -42,16 +42,16 @@ $vehiculo = $result->fetch_assoc();
             <input type="hidden" name="id" value="<?php echo $vehiculo['ID_Carro']; ?>">
 
             <label>Matricula de Carro</label>
-            <input type="text" name="matricula" placeholder="Matrícula del Carro" maxlength="8" pattern="[A-Za-z0-9]{1,8}" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()" title="La matrícula debe tener máximo 8 caracteres (letras y números)" required>
+            <input type="text" name="matricula" value="<?php echo $vehiculo['Matricula']; ?>" placeholder="Matrícula del Carro" maxlength="8" pattern="[A-Za-z0-9]{1,8}" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()" title="La matrícula debe tener máximo 8 caracteres (letras y números)" required>
 
             <label>Marca</label>
-            <input type="text" name="marca" placeholder="Marca del Carro" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()" required>
+            <input type="text" name="marca" value="<?php echo $vehiculo['Marca']; ?>" placeholder="Marca del Carro" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()" required>
 
             <label>Modelo</label>
-            <input type="text" name="modelo" placeholder="Modelo del Carro" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()" required>
+            <input type="text" name="modelo" value="<?php echo $vehiculo['Modelo']; ?>" placeholder="Modelo del Carro" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()" required>
 
             <label>Color</label>
-            <input type="text" name="color" placeholder="Color del Carro" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()" required>
+            <input type="text" name="color" value="<?php echo $vehiculo['Color']; ?>" placeholder="Color del Carro" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()" required>
 
             <button type="submit">Actualizar Vehículo</button>
 
