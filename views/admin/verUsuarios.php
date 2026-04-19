@@ -1,0 +1,109 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_SESSION['rol'] != 1) {
+    header("Location: ../../index.php");
+    exit;
+}
+
+include("../../includes/obtenerUsuarios.php");
+?>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Usuarios Registrados</title>
+    <link rel="stylesheet" href="../../assets/css/navbar.css">
+    <link rel="stylesheet" href="../../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/button.css">
+    <link rel="stylesheet" href="../../assets/css/background.css">
+    <link rel="stylesheet" href="../../assets/css/tableCheck.css">
+
+</head>
+
+<body>
+
+    <?php include("../components/navbar.php"); ?>
+    <?php include("../components/sidebar.php"); ?>
+
+    <div class="main-container" id="main-content">
+        <div class="contenedor-tabla">
+            <h1>Usuarios Registrados</h1>
+
+            <table class="tabla">
+
+                <thead>
+                    <tr>
+                        <th>NUMERO DE CONTROL</th>
+                        <th>NOMBRE</th>
+                        <th>APELLIDOS</th>
+                        <th>CORREO</th>
+                        <th>TELEFONO</th>
+                        <th>ROL</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <?php
+                    if ($resultUsuarios->num_rows > 0) {
+
+                        while ($fila = $resultUsuarios->fetch_assoc()) {
+                    ?>
+
+                            <tr>
+
+                                <td><?php echo $fila['NoControl']; ?></td>
+                                <td><?php echo $fila['Nombres']; ?></td>
+                                <td><?php echo $fila['Apellidos']; ?></td>
+                                <td><?php echo $fila['Correo']; ?></td>
+                                <td><?php echo $fila['Telefono']; ?></td>
+                                <td><?php echo $fila['NombreRol']; ?></td>
+
+                                <td>
+
+                                    <a href="editarUsuario.php?id=<?php echo $fila['ID_Usuario']; ?>">
+                                        <button class="botonc">Editar</button>
+                                    </a>
+
+                                    <a href="../../includes/eliminarUsuario.php?id=<?php echo $fila['ID_Usuario']; ?>"
+                                        onclick="return confirm('¿Eliminar usuario?')">
+
+                                        <button class="botonc eliminar">Eliminar</button>
+
+                                    </a>
+
+                                </td>
+
+                            </tr>
+
+                    <?php
+                        }
+                    }
+                    ?>
+
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+
+    <script>
+        const btn = document.getElementById('toggleSidebar');
+        const sidebar = document.getElementById('sidebar');
+        const content = document.getElementById('main-content');
+
+        btn.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            content.classList.toggle('pushed');
+        });
+    </script>
+
+</body>
+
+</html>

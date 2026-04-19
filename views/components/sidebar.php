@@ -19,6 +19,12 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol'])) {
             <button class="boton-sidebar" onclick="window.location.href='../admin/registros.php'">
                 <span class="icon">📝</span> <span class="text">Registrar</span>
             </button>
+            <button class="boton-sidebar" onclick="window.location.href='../admin/verVehiculos.php'">
+                <span class="icon">🚗</span> <span class="text">Vehículos</span>
+            </button>
+            <button class="boton-sidebar" onclick="window.location.href='../admin/verUsuarios.php'">
+                <span class="icon">👥</span> <span class="text">Usuarios</span>
+            </button>
         </nav>
 
     <?php elseif ($_SESSION['rol'] == 2): ?>
