@@ -1,18 +1,22 @@
 <?php
-session_start();
-include("../config/conexion.php");
 
-if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 1) {
-    header("Location: ../index.php");
-    exit;
+require_once __DIR__ . '/../config/conexion.php';
+
+if (!isset($_GET['id'])) {
+    die("ID no proporcionado");
 }
 
-$id = $_GET['id'];
+$id = intval($_GET['id']);
 
-$sql = "DELETE FROM Usuario WHERE ID_Usuario='$id'";
+$conn->query("DELETE FROM Carro WHERE ID_Usuario = $id");
 
-if ($conn->query($sql) === TRUE) {
+$sql = "DELETE FROM Usuario WHERE ID_Usuario = $id";
+
+if ($conn->query($sql)) {
     header("Location: ../views/admin/verUsuarios.php");
+    exit;
 } else {
-    echo "Error al eliminar usuario";
+    die("Error al eliminar usuario: " . $conn->error);
 }
+
+?>

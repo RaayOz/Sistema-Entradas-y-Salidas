@@ -15,20 +15,18 @@ $lugar = "Unidad Tomas de Aquino";
 
 function redirigir($metodo)
 {
-	if (!empty($motivo)) {
-		if ($metodo == "Peatonal") {
-			header("Location: ../views/guardia/peatonal.php");
-		} else {
-			header("Location: ../views/guardia/vehicular.php");
-		}
+	if ($metodo == "Peatonal") {
+		header("Location: ../views/guardia/peatonal.php");
 	} else {
-		if ($metodo == "Peatonal") {
-			header("Location: ../views/guardia/peatonalV.php");
-		} else {
-			header("Location: ../views/guardia/vehicularV.php");
-		}
+		header("Location: ../views/guardia/vehicular.php");
 	}
 	exit;
+}
+
+if (!empty($motivo)){
+	$motivo = $_POST['motivo'];
+} else {
+	$motivo = "HORARIO ESCOLAR";
 }
 
 $sqlUsuario = "SELECT ID_Usuario FROM Usuario WHERE NoControl='$nocontrol'";
@@ -57,31 +55,18 @@ if ($resultRegistro->num_rows == 0) {
 	}
 }
 
-if (!empty($motivo)) {
-		if (!empty($matricula)) {
-		$sql = "INSERT INTO Carro (ID_Usuario, Matricula) VALUES ('$id_usuario', '$matricula')";
-		if ($conn->query($sql) === TRUE) {
-			$id_carro = $conn->insert_id;
-		} else {
-			setMensaje("error", "Error al registrar el vehículo");
-			redirigir($metodoacceso);
-		}
+
+if (!empty($matricula)) {
+	$sql = "INSERT INTO Carro (ID_Usuario, Matricula) VALUES ('$id_usuario', '$matricula')";
+
+	if ($conn->query($sql) === TRUE) {
+		$id_carro = $conn->insert_id;
+	} else {
+		setMensaje("error", "Error al registrar el vehículo");
+		redirigir($metodoacceso);
 	}
 } else {
-	if (!empty($matricula)) {
-		$sqlCarro = "SELECT ID_Carro FROM Carro WHERE Matricula='$matricula'";
-		$resultCarro = $conn->query($sqlCarro);
-
-		if ($resultCarro->num_rows > 0) {
-			$carro = $resultCarro->fetch_assoc();
-			$id_carro = $carro['ID_Carro'];
-		} else {
-			setMensaje("error", "No existe un carro con esa matrícula");
-			redirigir($metodoacceso);
-		}
-	} else {
-		$id_carro = null;
-	}
+	$id_carro = null;
 }
 
 $sql = "INSERT INTO Registro (ID_Usuario, ID_Carro, EntradaSalida, MetodoAcceso, Fecha, Hora, Lugar, Motivo)

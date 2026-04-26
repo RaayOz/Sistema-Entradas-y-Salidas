@@ -48,7 +48,7 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_
                 <label>Telefono</label>
                 <input type="text" name="telefono" placeholder="xxx-xxx-xxxx" maxlength="10" pattern="[0-9]{1,10}" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()" title="El número debe tener entre 1 y 10 caracteres numericos" required>
 
-                <button class="botonc">Registrar Usuario</button>
+                <button class="botonc">Registrar Visitante</button>
         </div>
     </div>
 

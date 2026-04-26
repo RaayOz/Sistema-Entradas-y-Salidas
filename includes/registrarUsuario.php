@@ -28,7 +28,11 @@ if ($conn->query($sql) === TRUE) {
     }
 
     echo "$nombrerol Registrado Correctamente";
-    echo '<button class="boton" onclick="window.location.href=\'../views/admin/registros.php\'">Volver</button>';
+    if ($rol == 4) {
+        echo '<button class="boton" onclick="window.location.href=\'../views/guardia/visitante.php\'">Volver</button>';
+    } else {
+        echo '<button class="boton" onclick="window.location.href=\'../views/admin/registros.php\'">Volver</button>';
+    }
 } else {
     echo "Error: " . $conn->error;
 }

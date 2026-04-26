@@ -8,9 +8,10 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
-    <title>Registro de Usuario</title>
+    <title>Registro de Acceso</title>
     <link rel="stylesheet" href="../../assets/css/navbar.css">
     <link rel="stylesheet" href="../../assets/css/sidebar.css">
     <link rel="stylesheet" href="../../assets/css/button.css">
@@ -18,6 +19,7 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_
     <link rel="stylesheet" href="../../assets/css/mensajes.css">
     <link rel="stylesheet" href="../../assets/css/background.css">
 </head>
+
 <body>
 
     <?php include("../components/navbar.php"); ?>
@@ -25,54 +27,129 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_
     <?php include("../../includes/mensajes.php");
     mostrarMensaje(); ?>
 
+    <input
+        type="text"
+        id="scanner"
+        autocomplete="off"
+        style="position:absolute; left:-9999px; opacity:0;">
+
     <div class="main-container" id="main-content">
+
         <div class="card">
-            <form action="../../includes/registrarAcceso.php" method="POST">
+
+            <form action="../../includes/registrarAcceso.php" method="POST" id="formAcceso">
+
                 <h1>Registrar Acceso</h1>
 
                 <label>Número de control</label>
-                <input type="text" name="nocontrol" placeholder="Número de control" maxlength="10" pattern="[0-9]{1,10}" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()" title="El número de control debe tener entre 1 y 10 caracteres numericos" required>
+                <input
+                    type="text"
+                    name="nocontrol"
+                    placeholder="Número de control"
+                    maxlength="10"
+                    pattern="[0-9]{1,10}"
+                    style="text-transform: uppercase;"
+                    oninput="this.value = this.value.toUpperCase()"
+                    required>
+
+                <label for="motivo">Motivo de Visita</label>
+                <select id="motivo" name="motivo">
+                    <option value="">Seleccionar motivo</option>
+                    <option value="VISITA ACADEMICA">Visita académica</option>
+                    <option value="ENTREGA DOCUMENTOS">Entrega de documentos</option>
+                    <option value="REUNION">Reunión</option>
+                    <option value="EVENTO">Evento</option>
+                </select>
 
                 <input type="hidden" name="metodoacceso" value="Peatonal">
 
                 <button class="botonc">Registrar Acceso</button>
+
             </form>
+
         </div>
     </div>
+
+    <script>
+        const scanner = document.getElementById("scanner");
+        const form = document.getElementById("formAcceso");
+        const nocontrol = document.querySelector("input[name='nocontrol']");
+
+        function mantenerFoco() {
+
+            const activo = document.activeElement;
+            const esInputNormal =
+                activo && (
+                    activo.name === "nocontrol" ||
+                    activo.tagName === "SELECT" ||
+                    activo.tagName === "INPUT" && activo.id !== "scanner"
+                );
+
+            if (!esInputNormal) {
+                scanner.focus();
+            }
+        }
+
+        setInterval(mantenerFoco, 1000);
+
+        scanner.addEventListener("keydown", function(e) {
+            if (e.key === "Enter") {
+
+                const value = scanner.value.trim();
+
+                if (value.length > 0) {
+                    nocontrol.value = value;
+                    scanner.value = "";
+                    form.submit();
+                }
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const modal = document.getElementById("modalMensaje");
+
+            if (!modal) return;
+
+            let removed = false;
+
+            function cerrarMensaje() {
+                if (removed) return;
+                removed = true;
+
+                modal.style.opacity = "0";
+
+                setTimeout(() => {
+                    if (modal.parentNode) {
+                        modal.remove();
+                    }
+                }, 300);
+            }
+
+            setTimeout(cerrarMensaje, 3000);
+
+            document.addEventListener("click", cerrarMensaje);
+        });
+    </script>
 
     <script>
         const btn = document.getElementById('toggleSidebar');
         const sidebar = document.getElementById('sidebar');
         const content = document.getElementById('main-content');
 
-        if (btn) {
-            btn.addEventListener('click', () => {
-                sidebar.classList.toggle('active');
-                content.classList.toggle('pushed');
-            });
-        }
-
-        const modal = document.getElementById("modalMensaje");
-
-        if (modal) {
-            setTimeout(() => {
-                modal.style.opacity = "0";
-                modal.style.transition = "opacity 0.4s";
-                setTimeout(() => {
-                    modal.remove();
-                }, 400);
-            }, 3000);
-            modal.addEventListener("click", () => {
-                modal.style.opacity = "0";
-                setTimeout(() => {
-                    modal.remove();
-                }, 300);
-            });
-        }
+        btn.addEventListener('click', () => {
+            // 'active' mueve el sidebar de -250px a 0
+            sidebar.classList.toggle('active');
+            // 'pushed' mueve el contenido de 0 a 250px
+            content.classList.toggle('pushed');
+        });
     </script>
 
     <style>
         .main-container {
+            /* Empieza pegado a la izquierda porque el sidebar está oculto */
             margin-left: 0;
             margin-top: 70px;
             padding: 40px;
@@ -83,9 +160,12 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_
             min-height: calc(100vh - 70px);
         }
 
+        /* Cuando el sidebar aparece, empujamos el contenido 250px */
         .main-container.pushed {
             margin-left: 250px;
         }
     </style>
+
 </body>
+
 </html>

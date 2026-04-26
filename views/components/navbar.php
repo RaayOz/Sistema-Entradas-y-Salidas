@@ -5,8 +5,9 @@
         <img src="../../assets/img/textlogoblanco.png" alt="Logo" class="nav-logo">
     </div>
 
-    <div class="navbar-right" style="max-width: 250px; overflow: hidden;">
-        <span class="user-display" style="white-space: nowrap; text-overflow: ellipsis; display: block; overflow: hidden;" title="<?php echo $_SESSION['usuario']; ?>"><strong><?php echo $_SESSION['usuario']; ?></strong>
+    <div class="navbar-right">
+        <span class="user-display" title="<?php echo $_SESSION['usuario']; ?>">
+            <strong><?php echo $_SESSION['usuario']; ?></strong>
         </span>
     </div>
 </header>

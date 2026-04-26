@@ -1,3 +1,4 @@
+```php
 <?php
 session_start();
 
@@ -6,7 +7,7 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_
     exit;
 }
 
-include("../../includes/obtenerVehiculos.php");
+require_once("../../includes/obtenerRegistros.php");
 ?>
 
 <!DOCTYPE html>
@@ -35,15 +36,19 @@ include("../../includes/obtenerVehiculos.php");
 
             <form method="GET" class="filtros">
 
-                <input type="text" name="dueno" placeholder="Dueño" value="<?= $_GET['dueno'] ?? '' ?>">
+                <input type="text" name="usuario" placeholder="No. Control" value="<?= $_GET['usuario'] ?? '' ?>">
 
                 <input type="text" name="matricula" placeholder="Matrícula" value="<?= $_GET['matricula'] ?? '' ?>">
 
-                <input type="text" name="marca" placeholder="Marca" value="<?= $_GET['marca'] ?? '' ?>">
+                <select name="metodo">
+                    <option value="">Método Acceso</option>
+                    <option value="Vehicular" <?= (($_GET['metodo'] ?? '') == 'Vehiculart') ? 'selected' : '' ?>>Vehicular</option>
+                    <option value="Peatonal" <?= (($_GET['metodo'] ?? '') == 'Peatonal') ? 'selected' : '' ?>>Peatonal</option>
+                </select>
 
-                <input type="text" name="modelo" placeholder="Modelo" value="<?= $_GET['modelo'] ?? '' ?>">
+                <input type="date" name="fecha" value="<?= $_GET['fecha'] ?? '' ?>">
 
-                <input type="text" name="color" placeholder="Color" value="<?= $_GET['color'] ?? '' ?>">
+                <input type="time" name="hora" value="<?= $_GET['hora'] ?? '' ?>">
 
                 <button class="botonc" type="submit">Filtrar</button>
                 <a href="verUsuarios.php"><button class="botonc eliminar">Limpiar</button></a>
@@ -54,50 +59,44 @@ include("../../includes/obtenerVehiculos.php");
 
                 <thead>
                     <tr>
-                        <th>DUEÑO</th>
+                        <th>NUMERO DE CONTROL</th>
+                        <th>TIPO DE ACCESO</th>
+                        <th>METODO DE ACCESO</th>
                         <th>MATRICULA</th>
-                        <th>MARCA</th>
-                        <th>MODELO</th>
-                        <th>COLOR</th>
-                        <th>ACCIONES</th>
+                        <th>FECHA</th>
+                        <th>HORA</th>
+                        <th>LUGAR</th>
+                        <th>MOTIVO</th>
                     </tr>
                 </thead>
 
                 <tbody>
 
                     <?php
-                    if (isset($resultVehiculos) && $resultVehiculos->num_rows > 0) {
+                    if (isset($resultRegistros) && $resultRegistros->num_rows > 0) {
 
-                        while ($fila = $resultVehiculos->fetch_assoc()) {
+                        while ($fila = $resultRegistros->fetch_assoc()) {
                     ?>
                             <tr>
                                 <td><?= $fila['NoControl']; ?></td>
+                                <td><?= $fila['EntradaSalida']; ?></td>
+                                <td><?= $fila['MetodoAcceso']; ?></td>
                                 <td><?= $fila['Matricula']; ?></td>
-                                <td><?= $fila['Marca']; ?></td>
-                                <td><?= $fila['Modelo']; ?></td>
-                                <td><?= $fila['Color']; ?></td>
-
-                                <td>
-                                    <a href="editarVehiculo.php?id=<?= $fila['ID_Carro']; ?>">
-                                        <button class="botonc">Editar</button>
-                                    </a>
-
-                                    <a href="../../includes/eliminarVehiculo.php?id=<?= $fila['ID_Carro']; ?>" onclick="return confirm('¿Eliminar vehículo?')">
-                                        <button class="botonc eliminar">Eliminar</button>
-                                    </a>
-                                </td>
+                                <td><?= $fila['Fecha']; ?></td>
+                                <td><?= $fila['Hora']; ?></td>
+                                <td><?= $fila['Lugar']; ?></td>
+                                <td><?= $fila['Motivo']; ?></td>
                             </tr>
                     <?php
                         }
                     } else {
-                        echo "<tr><td colspan='6'>No hay vehículos registrados</td></tr>";
+                        echo "<tr><td colspan='9'>No hay registros</td></tr>";
                     }
                     ?>
 
                 </tbody>
 
             </table>
-
         </div>
     </div>
 
@@ -111,7 +110,7 @@ include("../../includes/obtenerVehiculos.php");
             content.classList.toggle('pushed');
         });
     </script>
-    
+
 </body>
 
 </html>

@@ -25,6 +25,9 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol'])) {
             <button class="boton-sidebar" onclick="window.location.href='../admin/verUsuarios.php'">
                 <span class="icon">👥</span> <span class="text">Usuarios</span>
             </button>
+            <button class="boton-sidebar" onclick="window.location.href='../admin/verRegistros.php'">
+                <span class="icon">📖</span> <span class="text">Registros</span>
+            </button>
         </nav>
 
     <?php elseif ($_SESSION['rol'] == 2): ?>
@@ -36,7 +39,7 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol'])) {
             <button class="boton-sidebar" onclick="window.location.href='../guardia/acceso.php'">
                 <span class="icon">📝</span> <span class="text">Registrar</span>
             </button>
-            <button class="boton-sidebar" onclick="window.location.href='../guardia/visitante.php'">
+            <button class="boton-sidebar" onclick="window.location.href='../guardia/visitantePeatonal.php'">
                 <span class="icon">📝</span> <span class="text">Visitante</span>
             </button>
         </nav>

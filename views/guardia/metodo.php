@@ -24,9 +24,9 @@ if(!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_S
     <?php include("../components/sidebar.php"); ?>
     
     <div class="selector">
-        <a class="opcion" href="peatonalV.php"><span class="icono">🚶</span>Acceso Peatonal</a>
+        <a class="opcion" href="peatonal.php"><span class="icono">🚶</span>Acceso Peatonal</a>
         
-        <a class="opcion" href="vehicularV.php"><span class="icono">🚗</span>Acceso Vehicular</a>
+        <a class="opcion" href="vehicular.php"><span class="icono">🚗</span>Acceso Vehicular</a>
     </div>
 
     <script>

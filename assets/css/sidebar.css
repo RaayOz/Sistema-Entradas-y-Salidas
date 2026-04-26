@@ -1,7 +1,7 @@
 .sidebar {
     width: 250px;
     height: 100vh;
-    background-color: #0000aa; /* Azul rey original */
+    background-color: #1800ad; /* Azul rey original */
     position: fixed;
     top: 70px;
     left: -250px; /* Escondido por defecto */
@@ -19,8 +19,8 @@
     width: 90%; /* Un poco menos que el ancho total para que respire */
     margin: 10px auto; /* Centrados y separados entre sí */
     padding: 12px 15px;
-    background-color: #ffffff; /* Fondo blanco como en tu primera foto */
-    color: #0000aa; /* Texto azul */
+    background-color: #f0f1ff; /* Fondo blanco como en tu primera foto */
+    color: #1800ad; /* Texto azul */
     border: none;
     border-radius: 5px; /* Bordes redondeados */
     display: flex;
@@ -44,7 +44,7 @@
 
 .boton-sidebar:hover {
     transform: scale(1.05); /* Efecto de que resalta al pasar el mouse */
-    background-color: #f0f0f0;
+    background-color: #f0f1ff;
 }
 
 .icon {

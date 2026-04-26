@@ -19,8 +19,8 @@ include("../../includes/obtenerUsuarios.php");
     <link rel="stylesheet" href="../../assets/css/navbar.css">
     <link rel="stylesheet" href="../../assets/css/sidebar.css">
     <link rel="stylesheet" href="../../assets/css/button.css">
-    <link rel="stylesheet" href="../../assets/css/background.css">
     <link rel="stylesheet" href="../../assets/css/tableCheck.css">
+    <link rel="stylesheet" href="../../assets/css/background.css">
 
 </head>
 
@@ -32,6 +32,23 @@ include("../../includes/obtenerUsuarios.php");
     <div class="main-container" id="main-content">
         <div class="contenedor-tabla">
             <h1>Usuarios Registrados</h1>
+
+            <form method="GET" class="filtros">
+
+                <input type="text" name="nocontrol" placeholder="No Control" value="<?= $_GET['nocontrol'] ?? '' ?>">
+
+                <select name="rol">
+                    <option value="">Rol</option>
+                    <option value="Administrador" <?= (($_GET['rol'] ?? '') == 'Administrador') ? 'selected' : '' ?>>Administrador</option>
+                    <option value="Guardia" <?= (($_GET['rol'] ?? '') == 'Guardia') ? 'selected' : '' ?>>Guardia</option>
+                    <option value="Alumno" <?= (($_GET['rol'] ?? '') == 'Alumno') ? 'selected' : '' ?>>Alumno</option>
+                    <option value="Visitante" <?= (($_GET['rol'] ?? '') == 'Visitante') ? 'selected' : '' ?>>Visitante</option>
+                </select>
+
+                <button class="botonc" type="submit">Filtrar</button>
+                <a href="verUsuarios.php"><button class="botonc eliminar">Limpiar</button></a>
+
+            </form>
 
             <table class="tabla">
 
