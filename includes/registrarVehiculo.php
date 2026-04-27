@@ -18,6 +18,14 @@ if($result->num_rows == 0){
 $usuario = $result->fetch_assoc();
 $id_usuario = $usuario['ID_Usuario'];
 
+$sqlCarro = "SELECT Matricula FROM Carro WHERE Matricula = '$matricula'";
+$resultCarro = $conn->query($sqlCarro);
+
+if ($resultCarro->num_rows > 0) {
+    echo "Ya existe un vehículo con esa matrícula";
+    exit;
+}
+
 $sql = "INSERT INTO Carro (ID_Usuario, Matricula, Marca, Modelo, Color) VALUES ('$id_usuario', '$matricula', '$marca', '$modelo', '$color')";
 
 if ($conn->query($sql) === TRUE) {

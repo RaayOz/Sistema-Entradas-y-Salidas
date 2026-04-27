@@ -39,6 +39,9 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol'])) {
             <button class="boton-sidebar" onclick="window.location.href='../guardia/acceso.php'">
                 <span class="icon">📝</span> <span class="text">Registrar</span>
             </button>
+            <button class="boton-sidebar" onclick="window.location.href='../guardia/verRegistros.php'">
+                <span class="icon">📖</span> <span class="text">Registros</span>
+            </button>
             <button class="boton-sidebar" onclick="window.location.href='../guardia/visitantePeatonal.php'">
                 <span class="icon">📝</span> <span class="text">Visitante</span>
             </button>

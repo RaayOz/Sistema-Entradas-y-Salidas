@@ -21,7 +21,8 @@ r.Motivo AS Motivo
 FROM Registro r
 INNER JOIN Usuario u ON r.ID_Usuario = u.ID_Usuario
 LEFT JOIN Carro c ON r.ID_Carro = c.ID_Carro
-WHERE 1=1";
+WHERE 1=1
+ORDER BY r.Fecha DESC, r.Hora DESC";
 
 if (!empty($metodo)) {
     $sql .= " AND r.MetodoAcceso = '$metodo'";

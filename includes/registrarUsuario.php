@@ -15,6 +15,14 @@ VALUES
 ('$nombre','$apellidos','$nocontrol','$correo','$contrasena','$rol','$telefono')";
 
 
+$sqlUsuario = "SELECT ID_Usuario FROM Usuario WHERE NoControl = '$nocontrol'";
+$result = $conn->query($sqlUsuario);
+
+if ($result && $result->num_rows > 0) {
+    echo "Ya existe un usuario con ese número de control";
+    exit;
+}
+
 if ($conn->query($sql) === TRUE) {
 
     $sqlrol = "SELECT NombreRol FROM Rol WHERE ID_Rol = '$rol'";

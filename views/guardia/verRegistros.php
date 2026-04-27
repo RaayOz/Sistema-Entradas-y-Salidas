@@ -2,7 +2,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_SESSION['rol'] != 1) {
+if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_SESSION['rol'] != 2) {
     header("Location: ../../index.php");
     exit;
 }
@@ -33,28 +33,6 @@ require_once("../../includes/obtenerRegistros.php");
         <div class="contenedor-tabla">
 
             <h1>Accesos Registrados</h1>
-
-            <form method="GET" class="filtros">
-
-                <input type="text" name="usuario" placeholder="No. Control" value="<?= $_GET['usuario'] ?? '' ?>">
-
-                <input type="text" name="matricula" placeholder="Matrícula" value="<?= $_GET['matricula'] ?? '' ?>">
-
-                <select name="metodo">
-                    <option value="">Método Acceso</option>
-                    <option value="Vehicular" <?= (($_GET['metodo'] ?? '') == 'Vehiculart') ? 'selected' : '' ?>>Vehicular</option>
-                    <option value="Peatonal" <?= (($_GET['metodo'] ?? '') == 'Peatonal') ? 'selected' : '' ?>>Peatonal</option>
-                </select>
-
-                <input type="date" name="fecha" value="<?= $_GET['fecha'] ?? '' ?>">
-
-                <input type="time" name="hora" value="<?= $_GET['hora'] ?? '' ?>">
-
-                <button class="botonc" type="submit">Filtrar</button>
-                <a href="verUsuarios.php"><button class="botonc eliminar">Limpiar</button></a>
-
-            </form>
-
             <table class="tabla">
 
                 <thead>
