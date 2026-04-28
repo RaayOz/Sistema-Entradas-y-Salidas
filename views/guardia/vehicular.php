@@ -4,6 +4,32 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_
     header("Location: ../../index.php");
     exit;
 }
+
+include("../../config/conexion.php");
+
+$cupo_maximo = 50;
+
+$autos_dentro = 0;
+$totalVehiculos = 0;
+
+$sqlConteo = "
+SELECT 
+    COALESCE(SUM(CASE WHEN EntradaSalida = 'Entrada' THEN 1 ELSE 0 END),0) -
+    COALESCE(SUM(CASE WHEN EntradaSalida = 'Salida' THEN 1 ELSE 0 END),0) 
+    AS total
+FROM Registro
+WHERE MetodoAcceso = 'Vehicular'
+";
+
+$resultConteo = $conn->query($sqlConteo);
+
+if ($resultConteo) {
+    $filaConteo = $resultConteo->fetch_assoc();
+    $autos_dentro = (int)($filaConteo['total'] ?? 0);
+    $totalVehiculos = $cupo_maximo - $autos_dentro;
+} else {
+    echo "Error SQL: " . $conn->error;
+}
 ?>
 
 <!DOCTYPE html>
@@ -37,6 +63,8 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_
 
                 <label for="matricula">Matricula</label>
                 <input type="text" id="matricula" name="matricula" placeholder="Matricula" maxlength="10" pattern="[A-Za-z0-9]{1,10}" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()" title="La matricula debe tener entre 1 y 10 caracteres alfanumericos" required>
+
+                <h5>Cupos disponibles: <?php echo $totalVehiculos; ?></h5>
 
                 <label for="motivo">Motivo de Visita</label>
                 <select id="motivo" name="motivo">
