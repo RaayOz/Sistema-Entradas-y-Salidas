@@ -1,0 +1,35 @@
+/* ─── PAGINACIÓN ──────────────────────────────────────────── */
+.paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.paginacion a,
+.paginacion span {
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: #1800ad;
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.paginacion a:hover {
+    background: #1a1a1a;
+}
+
+.paginacion .actual {
+    background: #4137ff;
+    font-weight: bold;
+}
+
+.info-pagina {
+    text-align: right;
+    font-size: 0.85rem;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}

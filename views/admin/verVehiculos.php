@@ -15,10 +15,11 @@ include("../../includes/obtenerVehiculos.php");
 <head>
     <meta charset="utf-8">
     <title>Vehículos Registrados</title>
-
     <link rel="stylesheet" href="../../assets/css/navbar.css">
     <link rel="stylesheet" href="../../assets/css/sidebar.css">
     <link rel="stylesheet" href="../../assets/css/button.css">
+    <link rel="stylesheet" href="../../assets/css/filtros.css">
+    <link rel="stylesheet" href="../../assets/css/paginacion.css">
     <link rel="stylesheet" href="../../assets/css/tableCheck.css">
     <link rel="stylesheet" href="../../assets/css/background.css">
 </head>
@@ -49,6 +50,11 @@ include("../../includes/obtenerVehiculos.php");
                 <a href="verUsuarios.php"><button class="botonc eliminar">Limpiar</button></a>
 
             </form>
+
+            <div class="info-pagina">
+                Mostrando página <?= isset($pagina) ? $pagina : 1 ?> de <?= isset($totalPaginas) ? $totalPaginas : 1 ?>
+                (<?= isset($totalRegistros) ? $totalRegistros : 0 ?> registros totales)
+            </div>
 
             <table class="tabla">
 
@@ -97,6 +103,49 @@ include("../../includes/obtenerVehiculos.php");
                 </tbody>
 
             </table>
+
+                        <?php if (isset($totalPaginas) && $totalPaginas > 1): ?>
+                <div class="paginacion">
+
+                    <?php
+                    $filtros = http_build_query([
+                        'nocontrol' => $_GET['nocontrol'] ?? '',
+                        'matricula' => $_GET['matricula'] ?? '',
+                        'marca'     => $_GET['marca']     ?? '',
+                        'modelo'    => $_GET['modelo']    ?? '',
+                        'color'     => $_GET['color']     ?? '',
+                    ]);
+                    ?>
+
+                    <?php if (isset($pagina) && $pagina > 1): ?>
+                        <a href="?<?= $filtros ?>&pagina=<?= $pagina - 1 ?>">← Anterior</a>
+                    <?php endif; ?>
+
+                    <?php
+                    $pagina = $pagina ?? 1;
+                    $totalPaginas = $totalPaginas ?? 1;
+                    $inicio = max(1, $pagina - 2);
+                    $fin    = min($totalPaginas, $pagina + 2);
+
+                    if ($inicio > 1) echo '<span>...</span>';
+
+                    for ($i = $inicio; $i <= $fin; $i++):
+                    ?>
+                        <?php if ($i == $pagina): ?>
+                            <span class="actual"><?= $i ?></span>
+                        <?php else: ?>
+                            <a href="?<?= $filtros ?>&pagina=<?= $i ?>"><?= $i ?></a>
+                        <?php endif; ?>
+                    <?php endfor; ?>
+
+                    <?php if ($fin < $totalPaginas) echo '<span>...</span>'; ?>
+
+                    <?php if ($pagina < $totalPaginas): ?>
+                        <a href="?<?= $filtros ?>&pagina=<?= $pagina + 1 ?>">Siguiente →</a>
+                    <?php endif; ?>
+
+                </div>
+            <?php endif; ?>
 
         </div>
     </div>

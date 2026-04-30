@@ -9,36 +9,31 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    right: 0;
     z-index: 2000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    box-sizing: border-box;
 }
 
 .navbar-left {
     display: flex;
-    align-items: left;
+    align-items: center;
     gap: 25px;
+    flex-shrink: 0;
 }
 
-/* Contenedor de la derecha (donde está el nombre) */
 .navbar-right {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    flex: 1;          /* Toma todo el espacio disponible */
-    min-width: 0;     /* Evita que el contenedor se rompa */
-    padding-right: 20px;
+    flex-shrink: 0;
 }
 
-/* El texto del nombre de usuario */
 .user-display {
     color: white;
     font-weight: bold;
     font-size: 1rem;
-    white-space: nowrap;    /* No deja que el nombre salte de línea */
-    overflow: hidden;       /* Esconde lo que no quepa */
-    text-overflow: ellipsis; /* Pone "..." si el nombre es de 50 letras */
-    margin-left: 15px;      /* Separa el nombre del logo SIESA */
+    white-space: nowrap;
 }
 
 .toggle-btn {

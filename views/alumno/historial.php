@@ -2,12 +2,12 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_SESSION['rol'] != 2) {
+if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_SESSION['rol'] != 3) {
     header("Location: ../../index.php");
     exit;
 }
 
-require_once("../../includes/registrosHoy.php");
+require_once("../../includes/verHistorial.php");
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +37,6 @@ require_once("../../includes/registrosHoy.php");
 
                 <thead>
                     <tr>
-                        <th>NUMERO DE CONTROL</th>
                         <th>TIPO DE ACCESO</th>
                         <th>METODO DE ACCESO</th>
                         <th>MATRICULA</th>
@@ -56,7 +55,6 @@ require_once("../../includes/registrosHoy.php");
                         while ($fila = $resultRegistros->fetch_assoc()) {
                     ?>
                             <tr>
-                                <td><?= $fila['NoControl']; ?></td>
                                 <td><?= $fila['EntradaSalida']; ?></td>
                                 <td><?= $fila['MetodoAcceso']; ?></td>
                                 <td><?= $fila['Matricula']; ?></td>

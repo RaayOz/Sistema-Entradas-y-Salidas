@@ -17,23 +17,24 @@ if ($resultado->num_rows > 0) {
 
     $usuario = $resultado->fetch_assoc();
 
-    $_SESSION['usuario'] = $usuario['Nombres'];
+    $_SESSION['usuario']   = $usuario['Nombres'];
+    $_SESSION['apellidos'] = $usuario['Apellidos'];
     $_SESSION['nocontrol'] = $usuario['NoControl'];
-    $_SESSION['rol'] = $usuario['ID_Rol'];
+    $_SESSION['correo']    = $usuario['Correo'];
+    $_SESSION['contrasena'] = $usuario['Contrasena'];
+    $_SESSION['telefono']  = $usuario['Telefono'];
+    $_SESSION['rol']       = $usuario['ID_Rol'];
 
     switch ($usuario['ID_Rol']) {
         case 1:
             header("location: ../views/admin/inicio.php");
             exit;
-
         case 2:
             header("location: ../views/guardia/inicio.php");
             exit;
-
         case 3:
             header("location: ../views/alumno/inicio.php");
             exit;
-
         default:
             echo "Rol no reconocido";
     }

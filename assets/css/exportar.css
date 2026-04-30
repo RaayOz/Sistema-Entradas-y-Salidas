@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #1a1a1a;
+    padding: 30px;
+}
+
+/* ─── HEADER ─────────────────────────────────────────────── */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 3px solid #1a1a1a;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+}
+
+.header h1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.header .subtitulo {
+    font-size: 10px;
+    color: #555;
+    margin-top: 4px;
+}
+
+.fecha {
+    font-size: 10px;
+    color: #555;
+    text-align: right;
+}
+
+/* ─── FILTROS ─────────────────────────────────────────────── */
+.filtros-reporte {
+    background: #f4f4f4;
+    border-left: 4px solid #1a1a1a;
+    padding: 8px 12px;
+    margin-bottom: 16px;
+    font-size: 10px;
+    color: #333;
+}
+
+/* ─── TABLA ───────────────────────────────────────────────── */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead tr {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+thead th {
+    padding: 8px 6px;
+    text-align: left;
+    letter-spacing: 0.5px;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody td {
+    padding: 7px 6px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* ─── FOOTER ──────────────────────────────────────────────── */
+.footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 9px;
+    color: #aaa;
+}

@@ -1,0 +1,34 @@
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.filtros input,
+.filtros select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    height: 38px;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.filtros input:focus,
+.filtros select:focus {
+    border-color: #1800ad;
+}
+
+.filtros .botonc {
+    padding: 8px 18px;
+    height: 38px;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    white-space: nowrap;
+}

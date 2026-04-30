@@ -13,7 +13,7 @@ $fecha = date("Y-m-d");
 $hora = date("H:i:s");
 $lugar = "Unidad Tomas de Aquino";
 
-$cupo_maximo = 50; 
+$cupo_maximo = 50;
 
 function redirigir($metodo)
 {
@@ -25,7 +25,7 @@ function redirigir($metodo)
 	exit;
 }
 
-if (!empty($motivo)){
+if (!empty($motivo)) {
 	$motivo = $_POST['motivo'];
 } else {
 	$motivo = "HORARIO ESCOLAR";
@@ -60,22 +60,6 @@ if ($resultRegistro->num_rows == 0) {
 	}
 }
 
-$sqlValidar = "SELECT EntradaSalida FROM Registro 
-WHERE ID_Usuario = '$id_usuario' 
-AND MetodoAcceso = 'Vehicular'
-ORDER BY ID_Registro DESC LIMIT 1";
-
-$resValidar = $conn->query($sqlValidar);
-
-if ($resValidar->num_rows > 0) {
-    $ultimoVehiculo = $resValidar->fetch_assoc();
-
-    if ($ultimoVehiculo['EntradaSalida'] == "Entrada" && $entradasalida == "Entrada") {
-        setMensaje("error", "El vehículo ya está dentro");
-        redirigir($metodoacceso);
-    }
-}
-
 $sqlConteo = "
 SELECT 
     COALESCE(SUM(CASE WHEN EntradaSalida = 'Entrada' THEN 1 ELSE 0 END),0) -
@@ -91,23 +75,24 @@ $autos_dentro = $filaConteo['total'] ?? 0;
 $totalVehiculos = $cupo_maximo - $autos_dentro;
 
 if ($metodoacceso == "Vehicular" && $entradasalida == "Entrada") {
-    if ($autos_dentro >= $cupo_maximo) {
-        setMensaje("error", "Estacionamiento lleno");
-        redirigir($metodoacceso);
-    }
-}
-
-if (!empty($matricula)) {
-	$sql = "INSERT INTO Carro (ID_Usuario, Matricula) VALUES ('$id_usuario', '$matricula')";
-
-	if ($conn->query($sql) === TRUE) {
-		$id_carro = $conn->insert_id;
-	} else {
-		setMensaje("error", "Error al registrar el vehículo");
+	if ($autos_dentro >= $cupo_maximo) {
+		setMensaje("error", "Estacionamiento lleno");
 		redirigir($metodoacceso);
 	}
-} else {
-	$id_carro = null;
+}
+
+$id_carro = null;
+
+if (!empty($matricula)) {
+	$sqlBuscarCarro = "SELECT ID_Carro FROM Carro WHERE Matricula='$matricula'";
+	$resultCarro = $conn->query($sqlBuscarCarro);
+
+	if ($resultCarro->num_rows > 0) {
+		$id_carro = $resultCarro->fetch_assoc()['ID_Carro'];
+	} else {
+		setMensaje("error", "La matrícula no está registrada");
+		redirigir($metodoacceso);
+	}
 }
 
 $sql = "INSERT INTO Registro 
@@ -122,4 +107,3 @@ if ($conn->query($sql) === TRUE) {
 	setMensaje("error", "Error al registrar el acceso");
 	redirigir($metodoacceso);
 }
-?>

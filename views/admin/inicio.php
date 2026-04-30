@@ -16,6 +16,7 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <link rel="stylesheet" href="../../assets/css/navbar.css">
     <link rel="stylesheet" href="../../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/tableCheck.css">
     <link rel="stylesheet" href="../../assets/css/background.css">
 </head>
 
@@ -25,8 +26,51 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_
 
     <div class="main-container" id="main-content">
         <div class="card">
-            <h1>Bienvenido <?php echo $_SESSION['usuario']; ?></h1>
-            <p>Número de Control: <?php echo $_SESSION['nocontrol']; ?></p>
+            <h1>Bienvenido</h1>
+
+            <table class="tabla">
+                <tr>
+                    <td><strong>Nombre completo</strong></td>
+                    <td><?php echo $_SESSION['usuario'] . ' ' . $_SESSION['apellidos']; ?></td>
+                </tr>
+                <tr>
+                    <td><strong>Número de Control</strong></td>
+                    <td><?php echo $_SESSION['nocontrol']; ?></td>
+                </tr>
+                <tr>
+                    <td><strong>Correo</strong></td>
+                    <td><?php echo $_SESSION['correo']; ?></td>
+                </tr>
+                <tr>
+                    <td><strong>Contraseña</strong></td>
+                    <td><?php echo $_SESSION['contrasena']; ?></td>
+                </tr>
+                <tr>
+                    <td><strong>Teléfono</strong></td>
+                    <td><?php echo $_SESSION['telefono']; ?></td>
+                </tr>
+                <tr>
+                    <td><strong>Rol</strong></td>
+                    <td>
+                        <?php
+                        switch ($_SESSION['rol']) {
+                            case 1:
+                                echo 'Administrador';
+                                break;
+                            case 2:
+                                echo 'Guardia';
+                                break;
+                            case 3:
+                                echo 'Alumno';
+                                break;
+                            default:
+                                echo 'Visitante';
+                        }
+                        ?>
+                    </td>
+                </tr>
+            </table>
+
         </div>
     </div>
 
