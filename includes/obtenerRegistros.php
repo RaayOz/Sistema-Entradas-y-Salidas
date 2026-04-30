@@ -8,12 +8,10 @@ $hora     = $_GET['hora']     ?? '';
 $usuario  = $_GET['usuario']  ?? '';
 $matricula = $_GET['matricula'] ?? '';
 
-// Paginación
 $porPagina = 25;
 $pagina    = max(1, intval($_GET['pagina'] ?? 1));
 $offset    = ($pagina - 1) * $porPagina;
 
-// WHERE base
 $where = "WHERE 1=1";
 
 if (!empty($metodo))    $where .= " AND r.MetodoAcceso = '$metodo'";
