@@ -95,10 +95,12 @@ if (!empty($matricula)) {
 	}
 }
 
+$id_carro_sql = ($id_carro === null) ? "NULL" : "'$id_carro'";
+
 $sql = "INSERT INTO Registro 
 (ID_Usuario, ID_Carro, EntradaSalida, MetodoAcceso, Fecha, Hora, Lugar, Motivo)
 VALUES 
-('$id_usuario','$id_carro','$entradasalida','$metodoacceso','$fecha','$hora','$lugar','$motivo')";
+('$id_usuario',$id_carro_sql,'$entradasalida','$metodoacceso','$fecha','$hora','$lugar','$motivo')";
 
 if ($conn->query($sql) === TRUE) {
 	setMensaje("exito", "Acceso registrado correctamente");
