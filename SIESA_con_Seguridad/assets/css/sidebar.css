@@ -1,0 +1,52 @@
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #1800ad; /* Azul rey original */
+    position: fixed;
+    top: 70px;
+    left: -250px; /* Escondido por defecto */
+    transition: left 0.3s ease;
+    z-index: 1000;
+    padding-top: 20px;
+}
+
+.sidebar.active {
+    left: 0; /* Entra a la pantalla */
+}
+
+/* --- BOTONES ESTILO ORIGINAL --- */
+.boton-sidebar {
+    width: 90%; /* Un poco menos que el ancho total para que respire */
+    margin: 10px auto; /* Centrados y separados entre sí */
+    padding: 12px 15px;
+    background-color: #f0f1ff; /* Fondo blanco como en tu primera foto */
+    color: #1800ad; /* Texto azul */
+    border: none;
+    border-radius: 5px; /* Bordes redondeados */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    transition: transform 0.2s, background 0.2s;
+}
+
+/* Si prefieres que el botón sea AZUL con letras BLANCAS (como en otras capturas): */
+/*
+.boton-sidebar {
+    background-color: #000088; 
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+*/
+
+.boton-sidebar:hover {
+    transform: scale(1.05); /* Efecto de que resalta al pasar el mouse */
+    background-color: #f0f1ff;
+}
+
+.icon {
+    font-size: 1.2rem;
+}
