@@ -42,10 +42,6 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_
                     <td><?php echo $_SESSION['correo']; ?></td>
                 </tr>
                 <tr>
-                    <td><strong>Contraseña</strong></td>
-                    <td><?php echo $_SESSION['contrasena']; ?></td>
-                </tr>
-                <tr>
                     <td><strong>Teléfono</strong></td>
                     <td><?php echo $_SESSION['telefono']; ?></td>
                 </tr>
