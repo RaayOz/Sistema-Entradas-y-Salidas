@@ -27,9 +27,9 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_
 
     <div class=main-container id="main-content">
         <div class="selector">
-            <a class="opcion" href="peatonal.php"><span class="icono">🚶</span>Acceso Peatonal</a>
+            <a class="opcion" href="peatonal.php"><img src="../../assets/icons/person.png   " class="icono"></img>Acceso Peatonal</a>
 
-            <a class="opcion" href="vehicular.php"><span class="icono">🚗</span>Acceso Vehicular</a>
+            <a class="opcion" href="vehicular.php"><img src="../../assets/icons/car.png" class="icono"></img>Acceso Vehicular</a>
         </div>
     </div>
 

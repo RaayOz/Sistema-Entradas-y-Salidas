@@ -24,11 +24,12 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_
 <body>
     <?php include("../components/navbar.php"); ?>
     <?php include("../components/sidebar.php"); ?>
+    <div class="main-container" id="main-content">
+        <div class="selector">
+            <a class="opcion" href="usuario.php"><img src="../../assets/icons/add-person.png" class="icono"></img>Registrar Usuarios</a>
 
-    <div class="selector">
-        <a class="opcion" href="usuario.php"><span class="icono">🚶</span>Registrar Usuarios</a>
-
-        <a class="opcion" href="vehiculo.php"><span class="icono">🚗</span>Registrar Vehículos</a>
+            <a class="opcion" href="vehiculo.php"><img src="../../assets/icons/add-car.png" class="icono"></img>Registrar Vehículos</a>
+        </div>
     </div>
 
     <script>
