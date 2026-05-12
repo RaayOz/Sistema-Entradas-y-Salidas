@@ -42,7 +42,7 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol'])) {
             <button class="boton-sidebar" onclick="window.location.href='../guardia/verRegistros.php'">
                 <img src="../../assets/icons/register.png" class="icon"></img> <span class="text">Registros</span>
             </button>
-            <button class="boton-sidebar" onclick="window.location.href='../guardia/visitantePeatonal.php'">
+            <button class="boton-sidebar" onclick="window.location.href='../guardia/visitante.php'">
                 <img src="../../assets/icons/add-person.png" class="icon"></img> <span class="text">Visitante</span>
             </button>
         </nav>
