@@ -1,8 +1,10 @@
+/* Estilos base para la página de tablas de verificación */
 body{
     margin:0;
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Contenedor principal que envuelve la tabla */
 .contenedor-tabla {
     width: 90%;
     max-width: 1400px;
@@ -13,65 +15,76 @@ body{
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Título principal de la sección */
 h1{
     text-align:center;
     margin-bottom:20px;
 }
 
+/* Estilo base de la tabla */
 table{
     width:100%;
     border-collapse:collapse;
 }
 
+/* Cabeceras de la tabla */
 th{
     background:#1800ad;
     color:white;
     padding:10px;
 }
 
+/* Celdas de datos de la tabla */
 td{
     padding:10px;
     text-align:center;
     border-bottom:1px solid #ddd;
 }
 
+/* Efecto hover en filas de tabla */
 tr:hover{
     background:#f2f2f2;
 }
 
+/* Contenedor de contenido principal con desplazamiento del sidebar */
 .main-container{
-margin-left:0;
-margin-top:70px;
-padding:40px;
-transition: margin-left 0.3s ease;
-display:flex;
-justify-content:center;
-align-items:flex-start;
-min-height:calc(100vh - 70px);
+    margin-left:0;
+    margin-top:70px;
+    padding:40px;
+    transition: margin-left 0.3s ease;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    min-height:calc(100vh - 70px);
 }
 
+/* Ajusta el contenedor cuando el sidebar está abierto */
 .main-container.pushed{
-margin-left:250px;
+    margin-left:250px;
 }
 
+/* Estilo de tabla secundaria con márgenes superiores */
 .tabla{
-width:100%;
-border-collapse:collapse;
-margin-top:20px;
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
 }
 
+/* Celdas y cabeceras de tabla secundaria */
 .tabla th,
 .tabla td{
-padding:10px;
-border-bottom:1px solid #ccc;
-text-align:center;
+    padding:10px;
+    border-bottom:1px solid #ccc;
+    text-align:center;
 }
 
+/* Cabeceras de tabla secundaria */
 .tabla th{
-background:#1800ad;
-color:white;
+    background:#1800ad;
+    color:white;
 }
 
+/* Clase de botón o etiqueta de eliminación */
 .eliminar{
-background:#e53935;
+    background:#e53935;
 }

@@ -1,3 +1,4 @@
+/* Estilos globales para botones principales */
 .botonc {
     width: 100%;
     padding: 10px;
@@ -10,6 +11,7 @@
     font-weight: bold;
 }
 
+/* Estado hover para mejorar la interacción visual */
 button:hover {
     background-color: #000000;
 }

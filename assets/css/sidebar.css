@@ -1,3 +1,4 @@
+/* Barra lateral oculta por defecto y fija debajo de la navbar */
 .sidebar {
     width: 250px;
     height: 100vh;
@@ -10,15 +11,16 @@
     padding-top: 20px;
 }
 
+/* Estado visible de la barra lateral */
 .sidebar.active {
     left: 0; /* Entra a la pantalla */
 }
 
-/* --- BOTONES ESTILO ORIGINAL --- */
+/* Botones dentro del sidebar con icono y texto */
 .boton-sidebar {
     width: 90%;
-    margin: 8px auto;       /* ← era 10px */
-    padding: 8px 12px;      /* ← era 12px 15px */
+    margin: 8px auto;
+    padding: 8px 12px;
     background-color: #f0f1ff;
     color: #1800ad;
     border: none;
@@ -33,18 +35,20 @@
     transition: transform 0.2s, background 0.2s;
 }
 
+/* Animación al pasar el puntero por el botón del sidebar */
 .boton-sidebar:hover {
     transform: scale(1.05);
     background-color: #f0f1ff;
 }
 
+/* Icono que acompaña cada botón del sidebar */
 .icon {
-    font-size: 1.5rem;      /* ← era 2rem */
-    min-width: 1.5rem;      /* ← igual al font-size */
+    font-size: 1.5rem;
+    min-width: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;      /* ← ajusta este valor */
+    width: 40px;
     height: 40px;
     object-fit: contain;  /* mantiene la proporción */
 }

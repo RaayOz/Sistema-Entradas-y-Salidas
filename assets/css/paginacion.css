@@ -1,3 +1,4 @@
+/* Contenedor de los controles de paginación */
 .paginacion {
     display: flex;
     justify-content: center;
@@ -7,6 +8,7 @@
     flex-wrap: wrap;
 }
 
+/* Estilo de botones y números de página */
 .paginacion a,
 .paginacion span {
     padding: 6px 12px;
@@ -17,15 +19,18 @@
     font-size: 0.9rem;
 }
 
+/* Hover sobre los enlaces de paginación */
 .paginacion a:hover {
     background: #1a1a1a;
 }
 
+/* Página activa resaltada */
 .paginacion .actual {
     background: #4137ff;
     font-weight: bold;
 }
 
+/* Información adicional de paginación como total de páginas */
 .info-pagina {
     text-align: right;
     font-size: 0.85rem;

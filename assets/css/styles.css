@@ -1,3 +1,4 @@
+/* Diseño de la página de inicio o formulario con fondo degradado */
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -5,14 +6,14 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-
-    background:linear-gradient(
+    background: linear-gradient(
         180deg,
         #1c00cf 60%,
         #ffffff 60%
-        );
+    );
 }
 
+/* Contenedor principal centrado */
 .container {
     width: 100%;
     display: flex;
@@ -21,6 +22,7 @@ body {
     min-height: calc(100vh - 90px);
 }
 
+/* Tarjeta blanca que contiene el formulario o contenido principal */
 .card {
     background: white;
     width: 500px;
@@ -30,10 +32,12 @@ body {
     text-align: center;
 }
 
+/* Logo dentro de la tarjeta */
 .logo img {
     width: 250px;
 }
 
+/* Título principal */
 h1 {
     color: black;
     font-weight: bold;
@@ -42,6 +46,7 @@ h1 {
     text-align: center;
 }
 
+/* Subtítulo importante */
 h2 {
     color: black;
     font-weight: bold;
@@ -49,20 +54,24 @@ h2 {
     margin: 5px 0;
 }
 
+/* Texto descriptivo secundario */
 .subtitle {
     font-size: 14px;
     margin-bottom: 10px;
 }
 
+/* Formulario con alineación de etiquetas a la izquierda */
 form {
     text-align: left;
 }
 
+/* Etiquetas de formulario */
 label {
     font-size: 14px;
     margin-bottom: 15px;
 }
 
+/* Inputs y selects con ancho completo y bordes suaves */
 input, select {
     width: 100%;
     padding: 10px;

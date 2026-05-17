@@ -1,15 +1,18 @@
+/* Estilos globales: normaliza márgenes, rellenos y box-sizing para todo el documento */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Estilo base del cuerpo para la página de exportación */
 body {
     font-family: Arial, sans-serif;
     color: #1a1a1a;
     padding: 30px;
 }
 
+/* Contenedor principal del encabezado del reporte */
 .header {
     display: flex;
     justify-content: space-between;
@@ -19,23 +22,27 @@ body {
     margin-bottom: 16px;
 }
 
+/* Título principal dentro del encabezado */
 .header h1 {
     font-size: 20px;
     font-weight: bold;
 }
 
+/* Texto secundario del encabezado (subtítulo / descripción) */
 .header .subtitulo {
     font-size: 10px;
     color: #555;
     margin-top: 4px;
 }
 
+/* Fecha de generación del reporte */
 .fecha {
     font-size: 10px;
     color: #555;
     text-align: right;
 }
 
+/* Sección que muestra los filtros aplicados al reporte */
 .filtros-reporte {
     background: #f4f4f4;
     border-left: 4px solid #1a1a1a;
@@ -45,31 +52,37 @@ body {
     color: #333;
 }
 
+/* Tabla principal del documento de exportación */
 table {
     width: 100%;
     border-collapse: collapse;
 }
 
+/* Estilo de la fila de encabezado de la tabla */
 thead tr {
     background-color: #1a1a1a;
     color: white;
 }
 
+/* Celdas del encabezado de la tabla */
 thead th {
     padding: 8px 6px;
     text-align: left;
     letter-spacing: 0.5px;
 }
 
+/* Alterna el fondo de las filas pares para mejorar la legibilidad */
 tbody tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
+/* Celdas del cuerpo de la tabla */
 tbody td {
     padding: 7px 6px;
     border-bottom: 1px solid #e0e0e0;
 }
 
+/* Pie de página del reporte */
 .footer {
     margin-top: 20px;
     text-align: center;

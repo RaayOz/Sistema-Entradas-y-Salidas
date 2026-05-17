@@ -1,3 +1,4 @@
+/* Barra de navegación principal fija en la parte superior */
 .main-navbar {
     display: flex;
     justify-content: space-between;
@@ -15,6 +16,7 @@
     box-sizing: border-box;
 }
 
+/* Sección izquierda de la barra con logo y navegación */
 .navbar-left {
     display: flex;
     align-items: center;
@@ -22,6 +24,7 @@
     flex-shrink: 0;
 }
 
+/* Sección derecha de la barra con acciones o usuario */
 .navbar-right {
     display: flex;
     justify-content: flex-end;
@@ -29,6 +32,7 @@
     flex-shrink: 0;
 }
 
+/* Texto del nombre de usuario u otra información */
 .user-display {
     color: white;
     font-weight: bold;
@@ -36,6 +40,7 @@
     white-space: nowrap;
 }
 
+/* Botón de alternar menú o sidebar */
 .toggle-btn {
     background: none;
     border: none;
@@ -44,10 +49,12 @@
     cursor: pointer;
 }
 
+/* Logo dentro de la barra de navegación */
 .nav-logo {
     height: 45px;
 }
 
+/* Nombre de marca o título de la aplicación */
 .brand-name {
     color: white;
     font-size: 2rem;

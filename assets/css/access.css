@@ -1,3 +1,4 @@
+/* Contenedor principal de la página de selección */
 .selector{
     display: flex;
     gap: 40px;
@@ -6,6 +7,7 @@
     height: 70vh;
 }
 
+/* Cada opción de acceso representada como tarjeta */
 .opcion{
     padding: 40px;
     background: white;
@@ -20,15 +22,18 @@
     align-items: center;
 }
 
+/* Efecto visual cuando el puntero pasa sobre una opción */
 .opcion:hover{
     transform: scale(1.05);
 }
 
+/* Icono dentro de cada opción */
 .icono{
     font-size: 60px;
     margin-bottom: 10px;
 }
 
+/* Estilo global para enlaces dentro de la pantalla de selección */
 a{
     color: black;
     font-weight: bold;
