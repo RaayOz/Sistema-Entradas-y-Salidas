@@ -1,4 +1,10 @@
 <?php
+/**
+ * Página de administración de usuarios.
+ *
+ * Permite a los administradores ver, filtrar, editar y eliminar usuarios registrados.
+ * Incluye paginación para manejar grandes cantidades de datos.
+ */
 session_start();
 
 if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_SESSION['rol'] != 1) {
@@ -31,10 +37,12 @@ include("../../includes/obtenerUsuarios.php");
     <?php include("../components/navbar.php"); ?>
     <?php include("../components/sidebar.php"); ?>
 
+    <!-- Contenedor principal: lista de usuarios con filtros y tabla -->
     <div class="main-container" id="main-content">
         <div class="contenedor-tabla">
             <h1>Usuarios Registrados</h1>
 
+            <!-- Formulario de filtros para buscar usuarios -->
             <form method="GET" class="filtros">
 
                 <input type="text" name="nocontrol" placeholder="No Control" value="<?= $_GET['nocontrol'] ?? '' ?>">

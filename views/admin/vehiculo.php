@@ -1,4 +1,10 @@
 <?php
+/**
+ * Formulario de registro de vehículo para el administrador.
+ *
+ * Verifica sesión de administrador y envía los datos a
+ * includes/registrarVehiculo.php.
+ */
 session_start();
 
 if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_SESSION['rol'] != 1) {
@@ -24,9 +30,12 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_
     <?php include("../components/navbar.php"); ?>
     <?php include("../components/sidebar.php"); ?>
 
+    <!-- Contenedor principal: formulario para registrar un vehículo -->
     <div class="main-container" id="main-content">
         <div class="card">
             <h1>Ingreso de Datos</h1>
+            
+            <!-- Formulario de registro de vehículo -->
             <form action="../../includes/registrarVehiculo.php" method="POST">
 
                 <label>Número de Control del Propietario</label>

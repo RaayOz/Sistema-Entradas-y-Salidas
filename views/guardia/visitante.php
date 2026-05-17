@@ -1,4 +1,10 @@
 <?php
+/**
+ * Formulario de registro de visitantes para guardias.
+ *
+ * Crea usuarios con rol visitante usando contraseña fija y redirige
+ * desde el panel de guardia.
+ */
 session_start();
 
 if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_SESSION['rol'] != 2) {
@@ -24,9 +30,12 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_
     <?php include("../components/navbar.php"); ?>
     <?php include("../components/sidebar.php"); ?>
 
+    <!-- Contenedor principal: formulario de registro de visitante -->
     <div class="main-container" id="main-content">
         <div class="card">
             <h1>Ingreso de Datos</h1>
+
+            <!-- Formulario de registro de visitante -->
             <form action="../../includes/registrarUsuario.php" method="POST">
 
                 <label>Nombre</label>
@@ -41,6 +50,7 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_
                 <label>Correo electrónico</label>
                 <input type="email" name="correo" placeholder="Correo electrónico" pattern="^[a-zA-Z0-9._%+-]+@tectijuana\.edu\.mx$" title="Solo correos institucionales @tectijuana.edu.mx" required>
 
+                <!-- Datos ocultos para registrar al visitante con contraseña y rol predeterminados -->
                 <input type="hidden" name="contrasena" value="visitante123">
 
                 <input type="hidden" name="rol" value="4">

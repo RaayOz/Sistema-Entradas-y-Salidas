@@ -1,10 +1,17 @@
 <?php
+/**
+ * Menú lateral compartido para navegación según el rol.
+ *
+ * Muestra botones de acceso rápido para administrador, guardia o alumno,
+ * más la opción de cerrar sesión.
+ */
 if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol'])) {
     header("Location: ../../index.php");
     exit;
 }
 ?>
 
+<!-- Menu lateral compartido, con opciones según rol de usuario -->
 <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
         <h2 style="color: white; text-align: center;"></h2>
@@ -12,6 +19,7 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol'])) {
 
     <?php if ($_SESSION['rol'] == 1): ?>
 
+        <!-- Navegación para administrador -->
         <nav class="sidebar-menu" style="display: flex; flex-direction: column;">
             <button class="boton-sidebar" onclick="window.location.href='../admin/inicio.php'">
                 <img src="../../assets/icons/home.png" class="icon"></img> <span class="text">Inicio</span>
@@ -32,6 +40,7 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol'])) {
 
     <?php elseif ($_SESSION['rol'] == 2): ?>
 
+        <!-- Navegación para guardia -->
         <nav class="sidebar-menu" style="display: flex; flex-direction: column;">
             <button class="boton-sidebar" onclick="window.location.href='../guardia/inicio.php'">
                 <img src="../../assets/icons/home.png" class="icon"></img> <span class="text">Inicio</span>
@@ -49,6 +58,7 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol'])) {
 
     <?php elseif ($_SESSION['rol'] == 3): ?>
 
+        <!-- Navegación para alumno -->
         <nav class="sidebar-menu" style="display: flex; flex-direction: column;">
             <button class="boton-sidebar" onclick="window.location.href='../alumno/inicio.php'">
                 <img src="../../assets/icons/home.png" class="icon"></img> <span class="text">Inicio</span>
@@ -60,6 +70,7 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol'])) {
 
     <?php endif; ?>
 
+    <!-- Botón de cerrar sesión siempre visible -->
     <nav class="sidebar-menu" style="display: flex; flex-direction: column;">
         <button class="boton-sidebar" onclick="window.location.href='../../controllers/logoutControl.php'">
             <img src="../../assets/icons/logout.png" class="icon"></img> <span class="text">Salir</span>

@@ -1,4 +1,10 @@
 <?php
+/**
+ * Panel de inicio para usuarios con rol de administrador.
+ *
+ * Muestra información básica de la sesión actual y enlaces a
+ * las opciones de administración del sistema.
+ */
 session_start();
 
 if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_SESSION['rol'] != 1) {
@@ -24,10 +30,12 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_
     <?php include("../components/navbar.php"); ?>
     <?php include("../components/sidebar.php"); ?>
 
+    <!-- Contenedor principal: panel de bienvenida del administrador -->
     <div class="main-container" id="main-content">
         <div class="card">
             <h1>Bienvenido</h1>
 
+            <!-- Tabla que muestra los datos de sesión del administrador -->
             <table class="tabla">
                 <tr>
                     <td><strong>Nombre completo</strong></td>

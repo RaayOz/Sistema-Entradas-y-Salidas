@@ -1,4 +1,10 @@
 <?php
+/**
+ * Formulario de registro de acceso vehicular para guardias.
+ *
+ * Muestra el cupo disponible y permite registrar la entrada/salida
+ * de vehículos mediante número de control y matrícula.
+ */
 session_start();
 if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_SESSION['rol'] != 2) {
     header("Location: ../../index.php");
@@ -53,8 +59,11 @@ if ($resultConteo) {
     <?php include("../../includes/mensajes.php");
     mostrarMensaje(); ?>
 
+    <!-- Contenedor principal: formulario de registro de acceso vehicular -->
     <div class="main-container" id="main-content">
         <div class="card">
+
+            <!-- Formulario de registro de acceso vehicular -->
             <form action="../../includes/registrarAcceso.php" method="POST">
                 <h1>Registrar Acceso</h1>
 
@@ -64,6 +73,7 @@ if ($resultConteo) {
                 <label for="matricula">Matricula</label>
                 <input type="text" id="matricula" name="matricula" placeholder="Matricula" maxlength="10" pattern="[A-Za-z0-9]{1,10}" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()" title="La matricula debe tener entre 1 y 10 caracteres alfanumericos" required>
 
+                <!-- Muestra el número de lugares disponibles para acceso vehicular -->
                 <h5>Cupos disponibles: <?php echo $totalVehiculos; ?></h5>
 
                 <label for="motivo">Motivo de Visita</label>

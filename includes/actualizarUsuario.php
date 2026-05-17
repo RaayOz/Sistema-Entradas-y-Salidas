@@ -1,7 +1,12 @@
 <?php
-// Este archivo se encarga de actualizar la información de un usuario en la base de datos
+/**
+ * Actualiza los datos de un usuario en la base de datos.
+ *
+ * Recibe los parámetros por POST y actualiza el registro correspondiente
+ * en la tabla Usuario. Luego redirige al listado de usuarios.
+ */
 session_start();
-include("../config/conexion.php");
+require_once __DIR__ . '/../config/conexion.php';
 
 /** @var mysqli $conn */
 $id = $_POST['id'];
@@ -11,18 +16,19 @@ $nocontrol = $_POST['nocontrol'];
 $correo = $_POST['correo'];
 $telefono = $_POST['telefono'];
 
-// Validar que los campos no estén vacíos
+// Preparar la consulta SQL para actualizar el usuario.
 $sql = "UPDATE Usuario SET 
-Nombres='$nombre',
-Apellidos='$apellidos',
-NoControl='$nocontrol',
-Correo='$correo',
-Telefono='$telefono'
-WHERE ID_Usuario='$id'";
+    Nombres='$nombre',
+    Apellidos='$apellidos',
+    NoControl='$nocontrol',
+    Correo='$correo',
+    Telefono='$telefono'
+    WHERE ID_Usuario='$id'";
 
-// Ejecutar la consulta y redirigir según el resultado
+// Ejecutar la consulta y redirigir según el resultado.
 if ($conn->query($sql)) {
     header("Location: ../views/admin/verUsuarios.php");
+    exit;
 } else {
     echo "Error al actualizar: " . $conn->error;
-}
+} 

@@ -1,4 +1,9 @@
 <?php
+/**
+ * Panel de inicio para usuarios con rol de alumno.
+ *
+ * Muestra los datos de sesión del usuario y enlaces de navegación.
+ */
 session_start();
 
 if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_SESSION['rol'] != 3) {
@@ -24,10 +29,12 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_
     <?php include("../components/navbar.php"); ?>
     <?php include("../components/sidebar.php"); ?>
 
+    <!-- Contenedor principal: dashboard de bienvenida del alumno -->
     <div class="main-container" id="main-content">
         <div class="card">
             <h1>Bienvenido</h1>
 
+            <!-- Tabla con datos personales del alumno en sesión -->
             <table class="tabla">
                 <tr>
                     <td><strong>Nombre completo</strong></td>

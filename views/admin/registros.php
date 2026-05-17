@@ -1,4 +1,9 @@
 <?php
+/**
+ * Menú de registro para administrador.
+ *
+ * Permite al administrador elegir entre registrar usuarios o vehículos.
+ */
 session_start();
 
 if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_SESSION['rol'] != 1) {
@@ -24,6 +29,7 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_
 <body>
     <?php include("../components/navbar.php"); ?>
     <?php include("../components/sidebar.php"); ?>
+    <!-- Contenedor principal: selección de registro para usuarios o vehículos -->
     <div class="main-container" id="main-content">
         <div class="selector">
             <a class="opcion" href="usuario.php"><img src="../../assets/icons/add-person.png" class="icono"></img>Registrar Usuarios</a>

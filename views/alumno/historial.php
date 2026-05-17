@@ -1,4 +1,9 @@
 <?php
+/**
+ * Historial de accesos del alumno.
+ *
+ * Carga los registros del usuario en sesión y los muestra en tabla.
+ */
 session_start();
 
 if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_SESSION['rol'] != 3) {
@@ -28,10 +33,12 @@ require_once("../../includes/verHistorial.php");
     <?php include("../components/navbar.php"); ?>
     <?php include("../components/sidebar.php"); ?>
 
+    <!-- Contenedor principal: historial de accesos del alumno -->
     <div class="main-container" id="main-content">
         <div class="contenedor-tabla">
-
             <h1>Accesos Registrados</h1>
+            
+            <!-- Tabla con los registros de acceso obtenidos desde el backend -->
             <table class="tabla">
 
                 <thead>

@@ -1,4 +1,9 @@
 <?php
+/**
+ * Página de selección de tipo de registro para guardias.
+ *
+ * Permite elegir entre acceso peatonal o vehicular.
+ */
 session_start();
 
 if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_SESSION['rol'] != 2) {
@@ -25,7 +30,8 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_
     <?php include("../components/navbar.php"); ?>
     <?php include("../components/sidebar.php"); ?>
 
-    <div class=main-container id="main-content">
+    <!-- Contenedor principal: selección de tipo de registro para guardias -->
+    <div class="main-container" id="main-content">
         <div class="selector">
             <a class="opcion" href="peatonal.php"><img src="../../assets/icons/person.png" class="icono"></img>Acceso Peatonal</a>
 

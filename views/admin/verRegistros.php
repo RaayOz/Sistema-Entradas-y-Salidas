@@ -1,4 +1,10 @@
 <?php
+/**
+ * Vista de registros de acceso para administrador.
+ *
+ * Carga el conjunto de registros filtrados y paginados y muestra
+ * la tabla con resultados, filtros y opción de exportar CSV.
+ */
 session_start();
 
 if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_SESSION['rol'] != 1) {
@@ -30,11 +36,12 @@ require_once("../../includes/obtenerRegistros.php");
     <?php include("../components/navbar.php"); ?>
     <?php include("../components/sidebar.php"); ?>
 
+    <!-- Contenedor principal: vista de registros con filtros y exportación CSV -->
     <div class="main-container" id="main-content">
         <div class="contenedor-tabla">
-
             <h1>Accesos Registrados</h1>
 
+            <!-- Formulario de filtros para buscar registros y generar exportaciones -->
             <form method="GET" class="filtros">
 
                 <input type="text" name="usuario" placeholder="No. Control" value="<?= $_GET['usuario'] ?? '' ?>">

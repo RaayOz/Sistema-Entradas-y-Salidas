@@ -1,4 +1,10 @@
 <?php
+/**
+ * Formulario de registro de usuario para el administrador.
+ *
+ * Muestra campos de ingreso de datos y envía el formulario a
+ * includes/registrarUsuario.php.
+ */
 session_start();
 
 if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_SESSION['rol'] != 1) {
@@ -24,9 +30,12 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_
     <?php include("../components/navbar.php"); ?>
     <?php include("../components/sidebar.php"); ?>
 
+    <!-- Contenedor principal: formulario para registrar un usuario nuevo -->
     <div class="main-container" id="main-content">
         <div class="card">
             <h1>Ingreso de Datos</h1>
+            
+            <!-- Formulario de registro de usuario -->
             <form action="../../includes/registrarUsuario.php" method="POST">
 
                 <label>Nombre</label>

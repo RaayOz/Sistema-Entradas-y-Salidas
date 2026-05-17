@@ -1,4 +1,10 @@
 <?php
+/**
+ * Página de administración de usuarios.
+ *
+ * Permite a los administradores ver, filtrar, editar y eliminar usuarios registrados.
+ * Incluye paginación para manejar grandes cantidades de datos.
+ */
 session_start();
 
 if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_SESSION['rol'] != 1) {
@@ -29,11 +35,12 @@ include("../../includes/obtenerVehiculos.php");
     <?php include("../components/navbar.php"); ?>
     <?php include("../components/sidebar.php"); ?>
 
+    <!-- Contenedor principal: lista de vehículos con filtros y acciones -->
     <div class="main-container" id="main-content">
         <div class="contenedor-tabla">
-
             <h1>Vehículos Registrados</h1>
 
+            <!-- Formulario de filtros para búsqueda de vehículos -->
             <form method="GET" class="filtros">
 
                 <input type="text" name="dueno" placeholder="Dueño" value="<?= $_GET['dueno'] ?? '' ?>">

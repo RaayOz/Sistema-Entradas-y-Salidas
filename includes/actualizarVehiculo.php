@@ -1,7 +1,12 @@
 <?php
-// Este archivo se encarga de actualizar la información de un vehículo en la base de datos
+/**
+ * Actualiza los datos de un vehículo registrado en la base de datos.
+ *
+ * Recibe los parámetros por POST y actualiza la fila de la tabla Carro.
+ * Luego redirige al listado de vehículos.
+ */
 session_start();
-require_once "../config/conexion.php";
+require_once __DIR__ . '/../config/conexion.php';
 
 /** @var mysqli $conn */
 $id = $_POST['id'];
@@ -10,17 +15,18 @@ $marca = $_POST['marca'];
 $modelo = $_POST['modelo'];
 $color = $_POST['color'];
 
-// Validar que los campos no estén vacíos
+// Preparar la consulta SQL para actualizar el vehículo.
 $sql = "UPDATE Carro SET 
-Matricula='$matricula',
-Marca='$marca',
-Modelo='$modelo',
-Color='$color'
-WHERE ID_Carro='$id'";
+    Matricula='$matricula',
+    Marca='$marca',
+    Modelo='$modelo',
+    Color='$color'
+    WHERE ID_Carro='$id'";
 
-// Ejecutar la consulta y redirigir según el resultado
+// Ejecutar la consulta y redirigir según el resultado.
 if ($conn->query($sql)) {
     header("Location: ../views/admin/verVehiculos.php");
+    exit;
 } else {
     echo "Error al actualizar: " . $conn->error;
 }

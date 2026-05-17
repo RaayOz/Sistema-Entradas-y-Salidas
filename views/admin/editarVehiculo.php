@@ -1,4 +1,10 @@
 <?php
+/**
+ * Página para editar los datos de un vehículo.
+ *
+ * Verifica acceso de administrador, obtiene el vehículo por ID
+ * y muestra un formulario para actualizar sus campos.
+ */
 session_start();
 
 if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_SESSION['rol'] != 1) {
@@ -34,11 +40,12 @@ $vehiculo = $result->fetch_assoc();
     <?php include("../components/navbar.php"); ?>
     <?php include("../components/sidebar.php"); ?>
 
-    <div class="main.container" id="main-content">
+    <!-- Contenedor principal: formulario de edición de vehículo -->
+    <div class="main-container" id="main-content">
         <div class="card">
-
             <h1>Editar Vehículo</h1>
 
+            <!-- Formulario que actualiza los datos del vehículo seleccionado -->
             <form action="../../includes/actualizarVehiculo.php" method="POST">
 
                 <input type="hidden" name="id" value="<?php echo $vehiculo['ID_Carro']; ?>">

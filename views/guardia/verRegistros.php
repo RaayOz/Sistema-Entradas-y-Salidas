@@ -1,4 +1,9 @@
 <?php
+/**
+ * Página de registros del día para guardias.
+ *
+ * Carga los accesos registrados en la fecha actual y los muestra en tabla.
+ */
 session_start();
 
 if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_SESSION['rol'] != 2) {
@@ -28,10 +33,12 @@ require_once("../../includes/registrosHoy.php");
     <?php include("../components/navbar.php"); ?>
     <?php include("../components/sidebar.php"); ?>
 
+    <!-- Contenedor principal: tabla de accesos del día para guardias -->
     <div class="main-container" id="main-content">
         <div class="contenedor-tabla">
-
             <h1>Accesos Registrados</h1>
+
+            <!-- Tabla con los registros de acceso obtenidos desde el backend -->
             <table class="tabla">
 
                 <thead>

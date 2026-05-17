@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * Formulario de registro de acceso peatonal para guardias.
+ *
+ * Incluye control de mensajes flash y permite escanear o escribir
+ * el número de control del usuario.
+ */
 session_start();
 if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_SESSION['rol'] != 2) {
     header("Location: ../../index.php");
@@ -27,16 +34,18 @@ if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_
     <?php include("../../includes/mensajes.php");
     mostrarMensaje(); ?>
 
+    <!-- Campo oculto para captura de código del escáner y envío automático al formulario -->
     <input
         type="text"
         id="scanner"
         autocomplete="off"
         style="position:absolute; left:-9999px; opacity:0;">
 
+    <!-- Contenedor principal: formulario de registro de acceso peatonal -->
     <div class="main-container" id="main-content">
-
         <div class="card">
 
+            <!-- Formulario de registro de acceso peatonal -->
             <form action="../../includes/registrarAcceso.php" method="POST" id="formAcceso">
 
                 <h1>Registrar Acceso</h1>

@@ -1,7 +1,12 @@
 <?php
-// Este archivo se encarga de eliminar un vehículo de la base de datos
+/**
+ * Elimina un vehículo registrado en la base de datos.
+ *
+ * Verifica que el usuario tenga rol de administrador antes de permitir
+ * la eliminación y luego redirige al listado de vehículos.
+ */
 session_start();
-include("../config/conexion.php");
+require_once __DIR__ . '/../config/conexion.php';
 
 /** @var mysqli $conn */
 if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 1) {
@@ -9,16 +14,14 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 1) {
     exit;
 }
 
-// Validar que se haya proporcionado un ID de vehículo
-$id = $_GET['id'];
-
-// Validar que el ID sea un número entero
-$id = intval($_GET['id']);
+// Validar que se haya proporcionado un ID de vehículo y convertirlo a entero.
+$id = intval($_GET['id'] ?? 0);
 $sql = "DELETE FROM Carro WHERE ID_Carro='$id'";
 
-// Ejecutar la consulta y redirigir según el resultado
+// Ejecutar la consulta y redirigir según el resultado.
 if ($conn->query($sql) === TRUE) {
     header("Location: ../views/admin/verVehiculos.php");
+    exit;
 } else {
     echo "Error al eliminar vehículo";
 }

@@ -1,4 +1,11 @@
 <?php
+/**
+ * Página para editar los datos de un usuario.
+ *
+ * Verifica que el usuario conectado sea administrador, carga
+ * los datos del usuario seleccionado y presenta el formulario
+ * de actualización.
+ */
 session_start();
 
 if (!isset($_SESSION['usuario'], $_SESSION['nocontrol'], $_SESSION['rol']) || $_SESSION['rol'] != 1) {
@@ -44,11 +51,12 @@ $usuario = $result->fetch_assoc();
     <?php include("../components/navbar.php"); ?>
     <?php include("../components/sidebar.php"); ?>
 
+    <!-- Contenedor principal: formulario de edición de usuario -->
     <div class="main-container" id="main-content">
         <div class="card">
-
             <h1>Editar Usuario</h1>
 
+            <!-- Formulario que actualiza los datos del usuario seleccionado -->
             <form action="../../includes/actualizarUsuario.php" method="POST">
 
                 <input type="hidden" name="id" value="<?php echo $usuario['ID_Usuario']; ?>">
